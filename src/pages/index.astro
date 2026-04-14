@@ -237,10 +237,6 @@ import HeaderTable from "../components/headerTable.astro";
 									const input = document.querySelector(`.rating-input[data-value="${i}"]`);
 									input.checked = true;								
 									console.log(`Estrella ${i} marcada como seleccionada`);
-
-									
-
-
 								}
 							});
 						});
@@ -309,7 +305,6 @@ import HeaderTable from "../components/headerTable.astro";
 			border-radius: 50px;
 			padding: 8px 10px 8px 10px;
 			color: white;
-			}
 		}
 		
 	}
@@ -339,18 +334,18 @@ import HeaderTable from "../components/headerTable.astro";
         border: 1px solid #cbd5e1;
     }
 
-.rating-input::before {
-    content: "\f586"; 
-    font-family: "bootstrap-icons";
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    vertical-align: middle;
-    display: inline-block;
-}
+	.rating-input::before {
+		content: "\f586"; 
+		font-family: "bootstrap-icons";
+		font-size: 1rem;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		vertical-align: middle;
+		display: inline-block;
+	}
     .rating-input:hover {
         transform: scale(1.1);
         z-index: 10;
