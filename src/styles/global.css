@@ -173,7 +173,7 @@ table {
 }
 
 thead tr {
-    background: #8BB051;
+    background: #4c8e4b;
 }
 
 thead th {
@@ -220,7 +220,6 @@ td.fila-label {
 .regular,
 .bueno,
 .excelente {
-    background: #1a3346;
     color: #ffffff;
     font-size: 15px;
     font-weight: 600;
