@@ -110,7 +110,6 @@ import HeaderTable from "../components/headerTable.astro";
 						</div>
 					</div>
 
-					<!-- ── SECCIÓN: Tours y guías ── -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="false">
 							<div class="seccion-titulo">
@@ -125,32 +124,52 @@ import HeaderTable from "../components/headerTable.astro";
 								<HeaderTable />
 								<tbody>
 									<tr>
-										<td class="fila-label">Tour a la ciudad de Lima</td>
+										<td class="fila-label">Recorrido por la ciudad de Lima</td>
 										<td><input type="radio" name="guia-lima" value="1" /></td>
 										<td><input type="radio" name="guia-lima" value="2" /></td>
 										<td><input type="radio" name="guia-lima" value="3" /></td>
 										<td><input type="radio" name="guia-lima" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Machu Picchu</td>
-										<td><input type="radio" name="guia-machu" value="1" /></td>
-										<td><input type="radio" name="guia-machu" value="2" /></td>
-										<td><input type="radio" name="guia-machu" value="3" /></td>
-										<td><input type="radio" name="guia-machu" value="4" /></td>
+										<td class="fila-label">Recorrido por la ciudad de Lima y museo</td>
+										<td><input type="radio" name="guia-lima-museo" value="1" /></td>
+										<td><input type="radio" name="guia-lima-museo" value="2" /></td>
+										<td><input type="radio" name="guia-lima-museo" value="3" /></td>
+										<td><input type="radio" name="guia-lima-museo" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Valle Sagrado</td>
-										<td><input type="radio" name="guia-valle" value="1" /></td>
-										<td><input type="radio" name="guia-valle" value="2" /></td>
-										<td><input type="radio" name="guia-valle" value="3" /></td>
-										<td><input type="radio" name="guia-valle" value="4" /></td>
+										<td class="fila-label">Tour por la ciudad de Cusco</td>
+										<td><input type="radio" name="guia-ciudad-cusco" value="1" /></td>
+										<td><input type="radio" name="guia-ciudad-cusco" value="2" /></td>
+										<td><input type="radio" name="guia-ciudad-cusco" value="3" /></td>
+										<td><input type="radio" name="guia-ciudad-cusco" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">Pisac y Ollantaytambo</td>
+										<td><input type="radio" name="guia-pisac" value="1" /></td>
+										<td><input type="radio" name="guia-pisac" value="2" /></td>
+										<td><input type="radio" name="guia-pisac" value="3" /></td>
+										<td><input type="radio" name="guia-pisac" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">Piscinas salinas de Moray y Maras</td>
+										<td><input type="radio" name="guia-piscinas-moray" value="1" /></td>
+										<td><input type="radio" name="guia-piscinas-moray" value="2" /></td>
+										<td><input type="radio" name="guia-piscinas-moray" value="3" /></td>
+										<td><input type="radio" name="guia-piscinas-moray" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">Excursión a Machu Picchu</td>
+										<td><input type="radio" name="guia-machu-picchu" value="1" /></td>
+										<td><input type="radio" name="guia-machu-picchu" value="2" /></td>
+										<td><input type="radio" name="guia-machu-picchu" value="3" /></td>
+										<td><input type="radio" name="guia-machu-picchu" value="4" /></td>
 									</tr>
 								</tbody>
 							</table>
 						</div>
 					</div>
 
-					<!-- ── SECCIÓN: Hoteles ── -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="false">
 							<div class="seccion-titulo">
@@ -165,25 +184,116 @@ import HeaderTable from "../components/headerTable.astro";
 								<HeaderTable />
 								<tbody>
 									<tr>
-										<td class="fila-label">Lima</td>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="Lima" value="Lima" disabled placeholder="Nombre Restaurante" />
+												<input class="hotel_input input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
 										<td><input type="radio" name="hotel-lima" value="1" /></td>
 										<td><input type="radio" name="hotel-lima" value="2" /></td>
 										<td><input type="radio" name="hotel-lima" value="3" /></td>
 										<td><input type="radio" name="hotel-lima" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Cusco</td>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="Cusco" value="Cusco" disabled placeholder="Nombre Restaurante" />
+												<input class="hotel_input input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
 										<td><input type="radio" name="hotel-cusco" value="1" /></td>
 										<td><input type="radio" name="hotel-cusco" value="2" /></td>
 										<td><input type="radio" name="hotel-cusco" value="3" /></td>
 										<td><input type="radio" name="hotel-cusco" value="4" /></td>
 									</tr>
+
+
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="machu-picchu" value="Machu Picchu" disabled placeholder="Nombre Restaurante" />
+												<input class="hotel_input input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-machu-picchu" value="1" /></td>
+										<td><input type="radio" name="hotel-machu-picchu" value="2" /></td>
+										<td><input type="radio" name="hotel-machu-picchu" value="3" /></td>
+										<td><input type="radio" name="hotel-machu-picchu" value="4" /></td>
+									</tr>
+
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="valle-sagrado" value="Valle Sagrado" disabled placeholder="Nombre Restaurante" />
+												<input class="hotel_input input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-valle-sagrado" value="1" /></td>
+										<td><input type="radio" name="hotel-valle-sagrado" value="2" /></td>
+										<td><input type="radio" name="hotel-valle-sagrado" value="3" /></td>
+										<td><input type="radio" name="hotel-valle-sagrado" value="4" /></td>
+									</tr>
+
+
+
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="ubicacion1"  placeholder="Nombre Restaurante" />
+												<input class="hotel_input input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-lima" value="1" /></td>
+										<td><input type="radio" name="hotel-lima" value="2" /></td>
+										<td><input type="radio" name="hotel-lima" value="3" /></td>
+										<td><input type="radio" name="hotel-lima" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="ubicacion1"  placeholder="Nombre Restaurante" />
+												<input class="hotel_input input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-cusco" value="1" /></td>
+										<td><input type="radio" name="hotel-cusco" value="2" /></td>
+										<td><input type="radio" name="hotel-cusco" value="3" /></td>
+										<td><input type="radio" name="hotel-cusco" value="4" /></td>
+									</tr>
+
+
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="ubicacion1"  placeholder="Nombre Restaurante" />
+												<input class="hotel_input input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-machu-picchu" value="1" /></td>
+										<td><input type="radio" name="hotel-machu-picchu" value="2" /></td>
+										<td><input type="radio" name="hotel-machu-picchu" value="3" /></td>
+										<td><input type="radio" name="hotel-machu-picchu" value="4" /></td>
+									</tr>
+
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="ubicacion1"  placeholder="Nombre Restaurante" />
+												<input class="hotel_input input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-valle-sagrado" value="1" /></td>
+										<td><input type="radio" name="hotel-valle-sagrado" value="2" /></td>
+										<td><input type="radio" name="hotel-valle-sagrado" value="3" /></td>
+										<td><input type="radio" name="hotel-valle-sagrado" value="4" /></td>
+									</tr>
+
 								</tbody>
 							</table>
 						</div>
 					</div>
 
-					<!-- ── SECCIÓN: Restaurantes ── -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="false">
 							<div class="seccion-titulo">
@@ -250,7 +360,6 @@ import HeaderTable from "../components/headerTable.astro";
 						</div>
 					</div>
 
-					<!-- ── SECCIÓN: Comentarios ── -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="false">
 							<div class="seccion-titulo">
@@ -313,7 +422,6 @@ import HeaderTable from "../components/headerTable.astro";
 </BaseLayout>
 
 <script is:inline>
-	// ── Acordeón de secciones ──
 	document.querySelectorAll(".seccion-header").forEach((btn) => {
 		btn.addEventListener("click", () => {
 			const cuerpo = btn.nextElementSibling;
@@ -323,7 +431,6 @@ import HeaderTable from "../components/headerTable.astro";
 		});
 	});
 
-	// ── Rating NPS ──
 	document.querySelectorAll(".rating-input").forEach((btn) => {
 		btn.addEventListener("click", () => {
 			const valorSeleccionado = parseInt(btn.dataset.value);
@@ -338,7 +445,6 @@ import HeaderTable from "../components/headerTable.astro";
 	const URL_API = "https://sturdy-waffle-7g9rv6vgq5g2r7xg-8000.app.github.dev/evaluacion";
 	const form = document.querySelector(".form-contacto");
 
-	// ── Mapa de calificaciones ──
 	const mapCalificacion = (valor) => {
 		const notas = {
 			"1": "Excelente",
@@ -349,7 +455,6 @@ import HeaderTable from "../components/headerTable.astro";
 		return notas[valor] || null;
 	};
 
-	// ── Envío del formulario ──
 	form?.addEventListener("submit", async (e) => {
 		e.preventDefault();
 
@@ -359,7 +464,6 @@ import HeaderTable from "../components/headerTable.astro";
 
 		const formData = new FormData(form);
 
-		// Restaurantes
 		const restaurantes = [];
 		for (let i = 1; i <= 4; i++) {
 			const nombre = formData.get(`rest-nombre-${i}`);
@@ -388,9 +492,12 @@ import HeaderTable from "../components/headerTable.astro";
 			].filter((i) => i.hotelTransfer_calificacion),
 
 			tours: [
-				{ tours_name: "Lima",         tours_calificacion: mapCalificacion(formData.get("guia-lima"))  },
-				{ tours_name: "Machu Picchu", tours_calificacion: mapCalificacion(formData.get("guia-machu")) },
-				{ tours_name: "Valle Sagrado",tours_calificacion: mapCalificacion(formData.get("guia-valle")) },
+				{ tours_name: "Recorrido por la ciudad de Lima", tours_calificacion: mapCalificacion(formData.get("guia-lima"))  },
+				{ tours_name: "Recorrido por la ciudad de Lima y museo", tours_calificacion: mapCalificacion(formData.get("guia-lima-museo")) },
+				{ tours_name: "Tour por la ciudad de Cusco",tours_calificacion: mapCalificacion(formData.get("guia-ciudad-cusco")) },
+				{ tours_name: "Pisac y Ollantaytambo",tours_calificacion: mapCalificacion(formData.get("guia-pisac")) },
+				{ tours_name: "Piscinas salinas de Moray y Maras",tours_calificacion: mapCalificacion(formData.get("guia-piscinas-moray")) },
+				{ tours_name: "Excursión a Machu Picchu",tours_calificacion: mapCalificacion(formData.get("guia-machu-picchu")) },
 			].filter((i) => i.tours_calificacion),
 
 			hotel: [
@@ -433,7 +540,22 @@ import HeaderTable from "../components/headerTable.astro";
 		margin: auto;
 	}
 
-	/* ── Hero ── */
+
+	.container-input_hotel{
+		display: flex;
+		gap: 10px;
+		color: #333;
+		align-items: center;
+	}
+
+	.hotel_input{
+		width: 50%;
+	}
+
+	.ubicacion-hotel{
+		width: 50%;
+	}
+
 	.hero h1 {
 		font-size: 2.5rem;
 		color: #105a40;
@@ -448,15 +570,12 @@ import HeaderTable from "../components/headerTable.astro";
 		margin-bottom: 30px;
 	}
 
-	/* ── Intro ── */
 	.intro-card {
 		padding: 20px;
 		margin-bottom: 40px;
 		border-radius: 8px;
-		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 	}
 
-	/* ── Datos personales ── */
 	.container-datos {
 		display: flex;
 		gap: 20px;
