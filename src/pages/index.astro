@@ -1,19 +1,19 @@
 ---
 import BaseLayout from "../Layout/BaseLayout.astro";
+import Image from "astro/components/Image.astro";
 import HeaderTable from "../components/headerTable.astro";
+import imagen from "../assets/footer.png";
 ---
 
 <BaseLayout>
 	<main>
 		<section class="containerEvaluacionViaje">
 
-			<!-- ── HERO ── -->
 			<div class="hero">
 				<h1>EVALUACIÓN DEL VIAJE</h1>
 				<div class="hero-line"></div>
 			</div>
 
-			<!-- ── INTRO ── -->
 			<div class="intro-card">
 				<p>
 					<strong>Estimado Visitante,</strong> lo invitamos a que nos dé
@@ -62,7 +62,6 @@ import HeaderTable from "../components/headerTable.astro";
 						/>
 					</div>
 
-					<!-- ── SECCIÓN: Hotel Transfer ── -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="true">
 							<div class="seccion-titulo">
@@ -359,16 +358,8 @@ import HeaderTable from "../components/headerTable.astro";
 						</div>
 					</div>
 
-					<div class="seccion">
-						<button type="button" class="seccion-header" aria-expanded="false">
-							<div class="seccion-titulo">
-								<span>Comentarios Generales y/o Sugerencias</span>
-							</div>
-							<span class="chevron">
-								<i class="bi bi-arrow-down-circle-fill"></i>
-							</span>
-						</button>
-						<div class="seccion-cuerpo">
+					<div class="seccion seccion-comentarios">
+						<p>Comentarios Generales y/o Sugerencias</p>
 							<div class="comentarios-wrap">
 								<textarea
 									name="comentarios"
@@ -376,7 +367,6 @@ import HeaderTable from "../components/headerTable.astro";
 									rows="5"
 								></textarea>
 							</div>
-						</div>
 					</div>
 
 					<div class="max-w-xl mx-auto p-6 bg-white rounded-2xl shadow-sm border border-gray-100 mt-8">
@@ -416,6 +406,14 @@ import HeaderTable from "../components/headerTable.astro";
 
 				</form>
 			</div>
+
+			<div>
+				<Image
+					src={imagen}
+					alt="Ilustración de feedback"
+				/>
+			</div>
+
 		</section>
 	</main>
 </BaseLayout>
@@ -540,3 +538,9 @@ import HeaderTable from "../components/headerTable.astro";
 		}
 	});
 </script>
+
+<style>
+	.seccion-comentarios{
+		padding: 20px;
+	}
+</style>

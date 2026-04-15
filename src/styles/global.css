@@ -19,7 +19,6 @@
 
 .hero {
     text-align: center;
-    padding: 3rem 2rem 2rem;
 }
 
 .hero-eyebrow {
@@ -78,8 +77,10 @@
 }
 
 .containerForm {
-    width: calc(100% - 3rem);
-    max-width: 780px;
+    width: 100%;
+    max-width: 900px;
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
 }
 
 form {
@@ -226,8 +227,8 @@ td.fila-label {
 }
 
 input[type="radio"] {
-    width: 18px;
-    height: 18px;
+    width: 13px;
+    height: 13px;
     accent-color: #0e9f18;
     cursor: pointer;
 }
@@ -298,6 +299,10 @@ textarea:focus {
 
 
 @media (width < 48rem) {
+    .container-input_hotel {
+        flex-direction: column;
+        align-items: flex-start;
+    }
     td.fila-label {
         font-size: 10px;
     }
@@ -315,8 +320,8 @@ textarea:focus {
     }
 
     input[type="radio"] {
-        width: 12px;
-        height: 12px;
+        width: 10px;
+        height: 10px;
         cursor: pointer;
     }
 }
@@ -338,7 +343,7 @@ textarea:focus {
     }
 
     thead th {
-        padding: 8px 6px;
+        padding: 12px 2px;
     }
 
     tbody td,
