@@ -200,50 +200,50 @@ import HeaderTable from "../components/headerTable.astro";
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_resturante">
-												<input class="input-restaurante" type="text" placeholder="Ubicacion">
-												<input class="input-restaurante" type="text" placeholder="Nombre Restaurante">
+												<input class="input-restaurante" type="text" name="rest-ubicacion-1" placeholder="Ubicación">
+												<input class="input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante">
 											</div>
 										</td>
-										<td><input type="radio" name="hotel-lima" value="1"></td>
-										<td><input type="radio" name="hotel-lima" value="2"></td>
-										<td><input type="radio" name="hotel-lima" value="3"></td>
-										<td><input type="radio" name="hotel-lima" value="4"></td>
+										<td><input type="radio" name="rest-calif-1" value="1"></td>
+										<td><input type="radio" name="rest-calif-1" value="2"></td>
+										<td><input type="radio" name="rest-calif-1" value="3"></td>
+										<td><input type="radio" name="rest-calif-1" value="4"></td>
 									</tr>
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_resturante">
-												<input class="input-restaurante" type="text" placeholder="Ubicacion">
-												<input class="input-restaurante" type="text" placeholder="Nombre Restaurante">
+												<input class="input-restaurante" type="text" name="rest-ubicacion-1" placeholder="Ubicación">
+												<input class="input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante">
 											</div>
 										</td>
-										<td><input type="radio" name="hotel-cusco" value="1"></td>
-										<td><input type="radio" name="hotel-cusco" value="2"></td>
-										<td><input type="radio" name="hotel-cusco" value="3"></td>
-										<td><input type="radio" name="hotel-cusco" value="4"></td>
+										<td><input type="radio" name="rest-calif-1" value="1"></td>
+										<td><input type="radio" name="rest-calif-1" value="2"></td>
+										<td><input type="radio" name="rest-calif-1" value="3"></td>
+										<td><input type="radio" name="rest-calif-1" value="4"></td>
 									</tr>
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_resturante">
-												<input class="input-restaurante" type="text" placeholder="Ubicacion">
-												<input class="input-restaurante" type="text" placeholder="Nombre Restaurante">
+												<input class="input-restaurante" type="text" name="rest-ubicacion-1" placeholder="Ubicación">
+												<input class="input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante">
 											</div>
 										</td>
-										<td><input type="radio" name="hotel-aguas" value="1"></td>
-										<td><input type="radio" name="hotel-aguas" value="2"></td>
-										<td><input type="radio" name="hotel-aguas" value="3"></td>
-										<td><input type="radio" name="hotel-aguas" value="4"></td>
+										<td><input type="radio" name="rest-calif-1" value="1"></td>
+										<td><input type="radio" name="rest-calif-1" value="2"></td>
+										<td><input type="radio" name="rest-calif-1" value="3"></td>
+										<td><input type="radio" name="rest-calif-1" value="4"></td>
 									</tr>
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_resturante">
-												<input class="input-restaurante" type="text" placeholder="Ubicacion">
-												<input class="input-restaurante" type="text" placeholder="Nombre Restaurante">
+												<input class="input-restaurante" type="text" name="rest-ubicacion-1" placeholder="Ubicación">
+												<input class="input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante">
 											</div>
 										</td>
-										<td><input type="radio" name="hotel-aguas" value="1"></td>
-										<td><input type="radio" name="hotel-aguas" value="2"></td>
-										<td><input type="radio" name="hotel-aguas" value="3"></td>
-										<td><input type="radio" name="hotel-aguas" value="4"></td>
+										<td><input type="radio" name="rest-calif-1" value="1"></td>
+										<td><input type="radio" name="rest-calif-1" value="2"></td>
+										<td><input type="radio" name="rest-calif-1" value="3"></td>
+										<td><input type="radio" name="rest-calif-1" value="4"></td>
 									</tr>
 								</tbody>
 							</table>
@@ -340,39 +340,52 @@ import HeaderTable from "../components/headerTable.astro";
     e.preventDefault();
     const btn = form.querySelector("button[type='submit']");
     btn.disabled = true;
+
+    btn.innerText = "Enviando...";
     
     const formData = new FormData(form);
 
-    const hotelTransfer = [
-      { hotelTransfer_name: "lima", hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-lima")) },
-      { hotelTransfer_name: "cusco", hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-cusco")) },
-      { hotelTransfer_name: "valle sagrado", hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-valle")) },
-      { hotelTransfer_name: "arequipa", hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-arequipa")) }
-    ];
-
-    const tours = [
-      { tours_name: "lima", tours_calificacion: mapCalificacion(formData.get("guia-lima")) },
-      { tours_name: "cusco", tours_calificacion: mapCalificacion(formData.get("guia-cusco")) },
-      { tours_name: "machu picchu", tours_calificacion: mapCalificacion(formData.get("guia-machu")) },
-      { tours_name: "valle sagrado", tours_calificacion: mapCalificacion(formData.get("guia-valle")) }
-    ];
-
-    const hotel = [
-      { hotel_name: "lima", hotel_calificacion: mapCalificacion(formData.get("hotel-lima")) },
-      { hotel_name: "cusco", hotel_calificacion: mapCalificacion(formData.get("hotel-cusco")) },
-      { hotel_name: "machu picchu", hotel_calificacion: mapCalificacion(formData.get("hotel-aguas")) }
-    ];
+    const restaurantes = [];
+    for (let i = 1; i <= 4; i++) {
+      const nombre = formData.get(`rest-nombre-${i}`);
+      const ubicacion = formData.get(`rest-ubicacion-${i}`);
+      const calif = formData.get(`rest-calif-${i}`);
+      
+      if (nombre || ubicacion) { 
+        restaurantes.push({
+          restaurante_ubicacion: ubicacion || "",
+          restaurante_name: nombre || "",
+          restaurante_calificacion: mapCalificacion(calif)
+        });
+      }
+    }
 
     const data = {
       nombre: formData.get("nombre"),
       email: formData.get("email"),
       fecha: formData.get("fecha"),
       calificacion: parseInt(document.getElementById("calificacion").value) || 0,
-      hotelTransfer: hotelTransfer,
-      tours: tours,
-      hotel: hotel,
+      hotelTransfer: [
+        { hotelTransfer_name: "lima", hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-lima")) },
+        { hotelTransfer_name: "cusco", hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-cusco")) },
+        { hotelTransfer_name: "valle sagrado", hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-valle")) },
+        { hotelTransfer_name: "arequipa", hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-arequipa")) }
+      ],
+      tours: [
+        { tours_name: "lima", tours_calificacion: mapCalificacion(formData.get("guia-lima")) },
+        { tours_name: "cusco", tours_calificacion: mapCalificacion(formData.get("guia-cusco")) },
+        { tours_name: "machu picchu", tours_calificacion: mapCalificacion(formData.get("guia-machu")) },
+        { tours_name: "valle sagrado", tours_calificacion: mapCalificacion(formData.get("guia-valle")) }
+      ],
+      hotel: [
+        { hotel_name: "lima", hotel_calificacion: mapCalificacion(formData.get("hotel-lima")) },
+        { hotel_name: "cusco", hotel_calificacion: mapCalificacion(formData.get("hotel-cusco")) },
+        { hotel_name: "machu picchu", hotel_calificacion: mapCalificacion(formData.get("hotel-aguas")) }
+      ],
+      restaurantes: restaurantes,
       comentario: formData.get("comentarios")
     };
+    
     
     try {
       const response = await fetch(URL, {
