@@ -184,6 +184,73 @@ import HeaderTable from "../components/headerTable.astro";
 						</div>
 					</div>
 
+
+					<div class="seccion">
+						<button type="button" class="seccion-header" aria-expanded="false">
+							<div class="seccion-titulo">
+								<span>Restaurantes</span>
+							</div>
+							<span class="chevron"><i class="bi bi-arrow-down-circle-fill"></i></span>
+						</button>
+						<div class="seccion-cuerpo">
+							<table>
+								<HeaderTable />
+
+								<tbody>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_resturante">
+												<input class="input-restaurante" type="text" placeholder="Ubicacion">
+												<input class="input-restaurante" type="text" placeholder="Nombre Restaurante">
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-lima" value="1"></td>
+										<td><input type="radio" name="hotel-lima" value="2"></td>
+										<td><input type="radio" name="hotel-lima" value="3"></td>
+										<td><input type="radio" name="hotel-lima" value="4"></td>
+									</tr>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_resturante">
+												<input class="input-restaurante" type="text" placeholder="Ubicacion">
+												<input class="input-restaurante" type="text" placeholder="Nombre Restaurante">
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-cusco" value="1"></td>
+										<td><input type="radio" name="hotel-cusco" value="2"></td>
+										<td><input type="radio" name="hotel-cusco" value="3"></td>
+										<td><input type="radio" name="hotel-cusco" value="4"></td>
+									</tr>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_resturante">
+												<input class="input-restaurante" type="text" placeholder="Ubicacion">
+												<input class="input-restaurante" type="text" placeholder="Nombre Restaurante">
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-aguas" value="1"></td>
+										<td><input type="radio" name="hotel-aguas" value="2"></td>
+										<td><input type="radio" name="hotel-aguas" value="3"></td>
+										<td><input type="radio" name="hotel-aguas" value="4"></td>
+									</tr>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_resturante">
+												<input class="input-restaurante" type="text" placeholder="Ubicacion">
+												<input class="input-restaurante" type="text" placeholder="Nombre Restaurante">
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-aguas" value="1"></td>
+										<td><input type="radio" name="hotel-aguas" value="2"></td>
+										<td><input type="radio" name="hotel-aguas" value="3"></td>
+										<td><input type="radio" name="hotel-aguas" value="4"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+
+
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="false">
 							<div class="seccion-titulo">
@@ -343,6 +410,21 @@ import HeaderTable from "../components/headerTable.astro";
 </script>
 
 <style>
+
+	.container-input_resturante{
+		display: flex;
+		gap: 10px;
+	}
+
+	.input-restaurante{
+		border-radius: 10px;
+		padding: 10px 10px;
+		width: 100%;
+		outline: none;
+		height: 40px;
+	}
+
+
 	.input-radioValoracion{
 		display: flex;
 		gap: 10px;
