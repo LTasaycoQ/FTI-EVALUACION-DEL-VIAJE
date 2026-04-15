@@ -306,16 +306,17 @@ textarea:focus {
     .regular,
     .bueno,
     .excelente {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     .container-datos {
         flex-direction: column;
+        
     }
 
     input[type="radio"] {
-        width: 10px;
-        height: 10px;
+        width: 12px;
+        height: 12px;
         cursor: pointer;
     }
 }

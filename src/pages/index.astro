@@ -199,7 +199,8 @@ import HeaderTable from "../components/headerTable.astro";
 						</div>
 					</div>
 					<br>
-					<input id="calificacion" hidden type="text" value="0" name="calificacion" placeholder="Calificacion" class="text-question-calificacion" readonly>
+					<input id="calificacion" hidden type="text" value="0" name="calificacion" placeholder="Calificacion"  readonly>
+					
 					<div class="max-w-xl mx-auto p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
 						<p class="text-gray-800 font-bold mb-4 text-center">
 							¿Qué tan probable es que recomiendes nuestro servicio?
@@ -230,7 +231,6 @@ import HeaderTable from "../components/headerTable.astro";
 								const inputCalificacion = document.getElementById("calificacion");
 								inputCalificacion.value = valorSeleccionado;
 
-							
 								
 								for (let i = 1; i <= valorSeleccionado; i++) {
 									
