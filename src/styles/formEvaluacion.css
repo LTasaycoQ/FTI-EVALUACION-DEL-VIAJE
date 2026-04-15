@@ -1,0 +1,165 @@
+    .containerEvaluacionViaje {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    .hero h1 {
+        text-align: center;
+        color: #363636;
+        font-weight: 600;
+        letter-spacing: 2px;
+    }
+
+    .hero-line {
+        height: 4px;
+        width: 140px;
+        background: #0c5f30;
+        margin: 10px auto 30px;
+    }
+
+    .text-parrafo{
+        color: #0b6547;
+        font-weight: 500;
+    }
+
+    .container-datos {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 2rem;
+    }
+
+    .container-datosUnico {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+        background: #f4f4f4;
+        border-radius: 50px;
+        padding-left: 15px;
+    }
+
+    .container-datosUnico i {
+        background: #195d40;
+        color: white;
+        padding: 8px;
+        border-radius: 50%;
+    }
+
+    .datosForm-personal {
+        border: none;
+        background: transparent;
+        padding: 12px;
+        width: 100%;
+        outline: none;
+    }
+
+    .seccion {
+        margin-bottom: 1rem;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    .seccion-header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem;
+        background: #F4F4F4;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        align-items: center;
+    }
+
+    .seccion-cuerpo {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        background: #fafafa;
+    }
+
+    .seccion-cuerpo.abierto {
+        max-height: 1000px;
+        padding: 1rem;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+    }
+
+    td,
+    th {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+    }
+
+    .fila-label {
+        text-align: left;
+        font-weight: 500;
+        color: #444;
+    }
+
+    .input-radioValoracion {
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        margin-top: 20px;
+    }
+
+    .rating-input {
+        appearance: none;
+        width: 70px;
+        height: 70px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        transition: 0.2s;
+    }
+
+    .rating-input::before {
+        content: "\f586";
+        font-family: "bootstrap-icons";
+        font-size: 20px;
+    }
+
+    .rating-input:checked {
+        background: #195d40;
+        border-color: #195d40;
+        color: white;
+    }
+
+    .btn-enviar {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        background: #195d40;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 2rem;
+    }
+
+    .btn-enviar:disabled {
+        background: #ccc;
+    }
+
+    @media (max-width: 768px) {
+        .container-datos {
+            flex-direction: column;
+        }
+
+        .rating-input {
+            width: 50px;
+            height: 50px;
+        }
+    }
