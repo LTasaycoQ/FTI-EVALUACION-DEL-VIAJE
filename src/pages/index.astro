@@ -72,6 +72,7 @@ import imagen from "../assets/footer.png";
 						</button>
 						<div class="seccion-cuerpo abierto">
 							<table>
+								
 								<HeaderTable />
 								<tbody>
 									<tr>
@@ -101,6 +102,35 @@ import imagen from "../assets/footer.png";
 										<td><input type="radio" name="transfer-arequipa" value="2" /></td>
 										<td><input type="radio" name="transfer-arequipa" value="3" /></td>
 										<td><input type="radio" name="transfer-arequipa" value="4" /></td>
+									</tr>
+
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-1"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-1" value="1" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-1" value="2" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-1" value="3" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-1" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-2"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-2" value="1" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-2" value="2" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-2" value="3" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-2" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-3"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-3" value="1" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-3" value="2" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-3" value="3" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-3" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-4"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-4" value="1" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-4" value="2" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-4" value="3" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-4" value="4" /></td>
 									</tr>
 								</tbody>
 							</table>
@@ -168,6 +198,37 @@ import imagen from "../assets/footer.png";
 										<td><input type="radio" name="guia-machu-picchu" value="2" /></td>
 										<td><input type="radio" name="guia-machu-picchu" value="3" /></td>
 										<td><input type="radio" name="guia-machu-picchu" value="4" /></td>
+									</tr>
+
+
+
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-1"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="tours-guia-1" value="1" /></td>
+										<td><input type="radio" name="tours-guia-1" value="2" /></td>
+										<td><input type="radio" name="tours-guia-1" value="3" /></td>
+										<td><input type="radio" name="tours-guia-1" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-2"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="tours-guia-2" value="1" /></td>
+										<td><input type="radio" name="tours-guia-2" value="2" /></td>
+										<td><input type="radio" name="tours-guia-2" value="3" /></td>
+										<td><input type="radio" name="tours-guia-2" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-3"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="tours-guia-3" value="1" /></td>
+										<td><input type="radio" name="tours-guia-3" value="2" /></td>
+										<td><input type="radio" name="tours-guia-3" value="3" /></td>
+										<td><input type="radio" name="tours-guia-3" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-4"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="tours-guia-4" value="1" /></td>
+										<td><input type="radio" name="tours-guia-4" value="2" /></td>
+										<td><input type="radio" name="tours-guia-4" value="3" /></td>
+										<td><input type="radio" name="tours-guia-4" value="4" /></td>
 									</tr>
 								</tbody>
 							</table>
@@ -381,7 +442,7 @@ import imagen from "../assets/footer.png";
 					</div>
 
 					<div class="seccion seccion-comentarios">
-						<p>Comentarios Generales y/o Sugerencias</p>
+						<p class="comentarioText">Comentarios Generales y/o Sugerencias</p>
 							<div class="comentarios-wrap">
 								<textarea
 									name="comentarios"
@@ -511,7 +572,12 @@ import imagen from "../assets/footer.png";
 				{ hotelTransfer_name: "Lima",         hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-lima"))     },
 				{ hotelTransfer_name: "Cusco",        hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-cusco"))    },
 				{ hotelTransfer_name: "Valle Sagrado",hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-valle"))    },
-				{ hotelTransfer_name: "Arequipa",     hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-arequipa")) },
+				{ hotelTransfer_name: "Servicio de Tren a Machu Picchu",     hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-arequipa")) },
+				
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-1"),     hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-1")) },
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-2"),     hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-2")) },
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-3"),     hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-3")) },
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-4"),     hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-4")) },
 			].filter((i) => i.hotelTransfer_calificacion),
 
 			tours: [
@@ -521,6 +587,12 @@ import imagen from "../assets/footer.png";
 				{ tours_name: "Pisac y Ollantaytambo",tours_calificacion: mapCalificacion(formData.get("guia-pisac")) },
 				{ tours_name: "Piscinas salinas de Moray y Maras",tours_calificacion: mapCalificacion(formData.get("guia-piscinas-moray")) },
 				{ tours_name: "Excursión a Machu Picchu",tours_calificacion: mapCalificacion(formData.get("guia-machu-picchu")) },
+				
+				
+				{ tours_name: formData.get("tours-nombre-1"),tours_calificacion: mapCalificacion(formData.get("tours-guia-1")) },
+				{ tours_name: formData.get("tours-nombre-2"),tours_calificacion: mapCalificacion(formData.get("tours-guia-2")) },
+				{ tours_name: formData.get("tours-nombre-3"),tours_calificacion: mapCalificacion(formData.get("tours-guia-3")) },
+				{ tours_name: formData.get("tours-nombre-4"),tours_calificacion: mapCalificacion(formData.get("tours-guia-4")) },
 			].filter((i) => i.tours_calificacion),
 
 			hotel: [
@@ -566,6 +638,15 @@ import imagen from "../assets/footer.png";
 </script>
 
 <style>
+
+	.input-hotel-transfer{
+		width: 100%;
+		height: 40px;
+		padding: 8px;
+		border-radius: 10px;
+		outline: none;
+		border: 1px solid rgb(189, 189, 189);
+	}
 
 	.comentarioText{
 		color:rgb(89, 89, 89);
