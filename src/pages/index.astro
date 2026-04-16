@@ -490,10 +490,11 @@ import imagen from "../assets/footer.png";
 				</form>
 			</div>
 
-			<div>
+			<div class="container-logo">
 				<Image
 					src={imagen}
 					alt="Ilustración de feedback"
+					class="imagen_logofiesta"
 				/>
 			</div>
 
@@ -658,5 +659,16 @@ import imagen from "../assets/footer.png";
 
 	.seccion-comentarios{
 		padding: 20px;
+	}
+
+	.container-logo{
+		width:100%;
+		display:flex;
+		justify-content:center;
+		align-items:center;	
+	}
+	.imagen_logofiesta{
+		width:900px;
+		height:90px;
 	}
 </style>
