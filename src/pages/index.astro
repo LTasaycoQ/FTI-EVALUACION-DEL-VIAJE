@@ -27,7 +27,6 @@ import imagen from "../assets/footer.png";
 			<div class="containerForm">
 				<form class="form-contacto">
 
-					<!-- Datos personales -->
 					<div class="container-datos">
 						<div class="container-datosUnico">
 							<i class="bi bi-person-fill"></i>
@@ -97,7 +96,7 @@ import imagen from "../assets/footer.png";
 										<td><input type="radio" name="transfer-valle" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Arequipa</td>
+										<td class="fila-label">Servicio de Tren a Machu Picchu</td>
 										<td><input type="radio" name="transfer-arequipa" value="1" /></td>
 										<td><input type="radio" name="transfer-arequipa" value="2" /></td>
 										<td><input type="radio" name="transfer-arequipa" value="3" /></td>
@@ -105,6 +104,13 @@ import imagen from "../assets/footer.png";
 									</tr>
 								</tbody>
 							</table>
+							<div>
+
+								<p class="comentarioText">Comentario</p>
+
+								<textarea name="comentarioHotelTransfer" placeholder=""></textarea>
+							</div>
+
 						</div>
 					</div>
 
@@ -122,35 +128,35 @@ import imagen from "../assets/footer.png";
 								<HeaderTable />
 								<tbody>
 									<tr>
-										<td class="fila-label">Recorrido por la ciudad de Lima</td>
+										<td class="fila-label">Tour a la ciudad de Lima</td>
 										<td><input type="radio" name="guia-lima" value="1" /></td>
 										<td><input type="radio" name="guia-lima" value="2" /></td>
 										<td><input type="radio" name="guia-lima" value="3" /></td>
 										<td><input type="radio" name="guia-lima" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Recorrido por la ciudad de Lima y museo</td>
+										<td class="fila-label">Tour a la ciudad de Lima & museo</td>
 										<td><input type="radio" name="guia-lima-museo" value="1" /></td>
 										<td><input type="radio" name="guia-lima-museo" value="2" /></td>
 										<td><input type="radio" name="guia-lima-museo" value="3" /></td>
 										<td><input type="radio" name="guia-lima-museo" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Tour por la ciudad de Cusco</td>
+										<td class="fila-label">Tour a la ciudad de Cusco</td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="1" /></td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="2" /></td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="3" /></td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Pisac y Ollantaytambo</td>
+										<td class="fila-label">Pisac & Ollantaytambo</td>
 										<td><input type="radio" name="guia-pisac" value="1" /></td>
 										<td><input type="radio" name="guia-pisac" value="2" /></td>
 										<td><input type="radio" name="guia-pisac" value="3" /></td>
 										<td><input type="radio" name="guia-pisac" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Piscinas salinas de Moray y Maras</td>
+										<td class="fila-label">Salineras de maras</td>
 										<td><input type="radio" name="guia-piscinas-moray" value="1" /></td>
 										<td><input type="radio" name="guia-piscinas-moray" value="2" /></td>
 										<td><input type="radio" name="guia-piscinas-moray" value="3" /></td>
@@ -165,6 +171,10 @@ import imagen from "../assets/footer.png";
 									</tr>
 								</tbody>
 							</table>
+							<div>
+								<p class="comentarioText">Comentario</p>
+								<textarea name="comentarioToursGuia" placeholder=""></textarea>
+							</div>
 						</div>
 					</div>
 
@@ -289,6 +299,12 @@ import imagen from "../assets/footer.png";
 
 								</tbody>
 							</table>
+							<div>
+
+								<p class="comentarioText">Comentario</p>
+
+								<textarea name="comentarioHotel" placeholder=""></textarea>
+							</div>
 						</div>
 					</div>
 
@@ -355,6 +371,12 @@ import imagen from "../assets/footer.png";
 									</tr>
 								</tbody>
 							</table>
+							<div>
+
+								<p class="comentarioText">Comentario</p>
+
+								<textarea name="comentarioRestaurante" placeholder=""></textarea>
+							</div>
 						</div>
 					</div>
 
@@ -439,7 +461,7 @@ import imagen from "../assets/footer.png";
 		});
 	});
 
-	const URL_API = "https://limited-cathy-peru-luxury-54ebd510.koyeb.app/evaluacion";
+	const URL_API = "https://sturdy-waffle-7g9rv6vgq5g2r7xg-8000.app.github.dev/evaluacion";
 	const form = document.querySelector(".form-contacto");
 
 	const mapCalificacion = (valor) => {
@@ -479,6 +501,10 @@ import imagen from "../assets/footer.png";
 			nombre:       formData.get("nombre"),
 			email:        formData.get("email"),
 			fecha:        formData.get("fecha"),
+			comentarioHotelTransfer: formData.get("comentarioHotelTransfer"),
+			comentarioHotel: formData.get("comentarioHote"),
+			comentarioRestaurante: formData.get("comentarioRestaurante"),
+			comentarioToursGuia: formData.get("comentarioToursGuia"),
 			calificacion: parseInt(document.getElementById("calificacion").value) || 0,
 
 			hotelTransfer: [
@@ -540,6 +566,15 @@ import imagen from "../assets/footer.png";
 </script>
 
 <style>
+
+	.comentarioText{
+		color:rgb(89, 89, 89);
+		font-weight: bold;
+		margin-top: 20px;
+		margin-bottom: 10px;
+		font-size: 17px;
+	}
+
 	.seccion-comentarios{
 		padding: 20px;
 	}
