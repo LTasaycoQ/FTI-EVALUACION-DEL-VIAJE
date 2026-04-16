@@ -13,8 +13,8 @@
     align-items: center;
     width: 100%;
     min-height: 100vh;
+    padding-top: 40px;
     font-family: "Inter", sans-serif;
-    background: #ffffff;
     padding-bottom: 4rem;
 }
 
@@ -560,3 +560,16 @@ textarea:focus {
 		}
 	}
 
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+body::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "../Layout/BaseLayout.astro";
-import Image from "astro/components/Image.astro";
 import HeaderTable from "../components/headerTable.astro";
-import imagen from "../assets/footer.png";
 ---
 
 <BaseLayout>
@@ -491,8 +489,8 @@ import imagen from "../assets/footer.png";
 			</div>
 
 			<div class="container-logo">
-				<Image
-					src={imagen}
+				<img
+					src="https://res.cloudinary.com/dlgeap8h0/image/upload/q_auto/f_auto/v1776376128/footer_e5ishe.png"
 					alt="Ilustración de feedback"
 					class="imagen_logofiesta"
 				/>
@@ -668,7 +666,7 @@ import imagen from "../assets/footer.png";
 		align-items:center;	
 	}
 	.imagen_logofiesta{
-		width:900px;
-		height:90px;
+		width:450px;
+		height:50px;
 	}
 </style>
