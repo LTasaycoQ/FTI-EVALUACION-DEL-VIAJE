@@ -3,6 +3,7 @@
 *::after {
     box-sizing: border-box;
     margin: 0;
+    width: 100%;
     padding: 0;
 }
 
@@ -119,6 +120,7 @@ form {
     align-items: center;
     gap: 10px;
     font-size: 16px;
+    text-align: start;
     font-weight: 600;
     color: #2c2416;
 }
@@ -138,12 +140,17 @@ form {
 .chevron {
     font-size: 20px;
     color: #057c48;
+    text-align: end;
     transition: transform 0.25s;
     line-height: 1;
+    max-width: max-content;
 }
 
 .seccion-header[aria-expanded="true"] .chevron {
-    transform: rotate(180deg);
+    transform: rotate(180deg);    
+    max-width: max-content;
+    text-align: start;
+
 }
 
 .seccion-cuerpo {
@@ -485,7 +492,6 @@ textarea:focus {
 		gap: 4%;
 	}
 
-	/* ── Rating NPS ── */
 	.input-radioValoracion {
 		display: flex;
 		justify-content: space-between;
@@ -493,6 +499,7 @@ textarea:focus {
 		margin-top: 20px;
 	}
 	.rating-input {
+        text-align: center;
 		appearance: none;
 		width: 60px;
 		height: 60px;
