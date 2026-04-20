@@ -1,7 +1,6 @@
 ---
 import "../styles/global.css";
 const { title, description, ogImage } = Astro.props;
-import Nav from "../components/nav.astro";
 ---
 
 <html lang="en">
@@ -27,7 +26,6 @@ import Nav from "../components/nav.astro";
         </style>
     </head>
     <body>
-        <Nav />
         <slot />
     </body>
 </html>
