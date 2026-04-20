@@ -11,13 +11,8 @@ import Languaje from "../components/languaje.astro";
 		
 		<section class="containerEvaluacionViaje">
 
-
 			<div class="imagen-empresa">
-				<img
-					src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1776716757/Group_21_jeevuu.png"
-					alt="Logo de la empresa"
-				/>
-
+				<img src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1776716757/Group_21_jeevuu.png" alt="Logo de la empresa" />
 			</div>
 
 			<div class="hero">
@@ -513,6 +508,7 @@ import Languaje from "../components/languaje.astro";
 	</main>
 </BaseLayout>
 
+<script is:inline src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script is:inline>
 	document.querySelectorAll(".seccion-header").forEach((btn) => {
 		btn.addEventListener("click", () => {
@@ -633,11 +629,21 @@ import Languaje from "../components/languaje.astro";
 			});
 
 			if (response.ok) {
-				alert("Evaluación enviada con éxito.");
+				Swal.fire({
+					title: '¡Éxito!',
+					text: 'Evaluación enviada con éxito.',
+					icon: 'success',
+					confirmButtonText: 'Cool'
+				})
 				form.reset();
 				document.getElementById("calificacion").value = "0";
 			} else {
-				alert("Error al enviar. Inténtalo de nuevo.");
+				Swal.fire({
+					title: 'Error!',
+					text: 'Error al enviar. Inténtalo de nuevo.',
+					icon: 'error',
+					confirmButtonText: 'Cool'
+				})
 			}
 		} catch (error) {
 			console.error("Error:", error);
