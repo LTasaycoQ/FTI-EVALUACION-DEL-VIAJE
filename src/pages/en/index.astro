@@ -1,0 +1,738 @@
+---
+import BaseLayout from "../../Layout/BaseLayout.astro";
+import HeaderTable from "../../components/headerTable.astro";
+import Languaje from "../../components/languaje.astro";
+
+const currentLocale = Astro.currentLocale || 'es';
+
+const translations = {
+  es: {
+    form: {
+      nombre: "Nombre",
+      apellido: "Apellido",
+      telefono: "Número Telefónico",
+      email: "Email",
+      mensaje: "Mensaje",
+      enviar: "Enviar",
+      enviando: "Enviando..."
+    },
+    contact: {
+      titulo: "Contacto Hotel:",
+      reservaciones: "Reservaciones:",
+      recepcion: "Recepción:"
+    },
+    alerts: {
+      successTitle: "¡Enviado!",
+      successText: "Tu mensaje ha sido enviado con éxito.",
+      errorTitle: "Error",
+      errorText: "No pudimos enviar el mensaje. Intenta de nuevo."
+    }
+  },
+  en: {
+    form: {
+      nombre: "Name",
+      apellido: "Last Name",
+      telefono: "Phone Number",
+      email: "Email",
+      mensaje: "Message",
+      enviar: "Send",
+      enviando: "Sending..."
+    },
+    contact: {
+      titulo: "Hotel Contact:",
+      reservaciones: "Reservations:",
+      recepcion: "Front Desk:"
+    },
+    alerts: {
+      successTitle: "Sent!",
+      successText: "Your message has been sent successfully.",
+      errorTitle: "Error",
+      errorText: "We couldn't send the message. Please try again."
+    }
+  }
+};
+
+const t = translations[currentLocale as keyof typeof translations];
+
+---
+
+<BaseLayout>
+	<main>
+		<Languaje />
+		
+		<section class="containerEvaluacionViaje">
+
+			<div class="imagen-empresa">
+				<img src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1776726875/Group_22_vtvrk3.png" alt="Logo de la empresa" />
+			</div>
+
+			<div class="hero">
+				<h1>TRIP EVALUATION</h1>
+				<div class="hero-line"></div>
+			</div>
+
+			<div class="intro-card">
+				<p>
+					<strong>Dear visitor,</strong> We invite you to give us your opinion about our services. Please help us identify our employees who have done an excellent job so we can reward them and identify areas where we need to improve.
+We strive to perfect the art of. <em> serving tourists</em>.
+				</p>
+			</div>
+
+			<div class="containerForm">
+				<form class="form-contacto">
+					<div class="container-datos">
+						<div class="container-datosUnico">
+							<i class="bi bi-person-fill"></i>
+							<input
+								class="datosForm-personal"
+								type="text"
+								name="nombre"
+								placeholder="Nombre completo"
+								required
+							/>
+						</div>
+						<div class="container-datosUnico">
+							<i class="bi bi-calendar-date"></i>
+							<input
+								class="datosForm-personal"
+								type="date"
+								name="fecha"
+								placeholder="Fecha"
+								required
+							/>
+						</div>
+					</div>
+
+					<div class="container-datosUnico mb-8">
+						<i class="bi bi-envelope-at-fill"></i>
+						<input
+							class="datosForm-personal"
+							type="email"
+							name="email"
+							placeholder="Correo electrónico"
+							required
+						/>
+					</div>
+
+					<div class="seccion">
+						<button type="button" class="seccion-header" aria-expanded="true">
+							<div class="seccion-titulo">
+								<span>Hotel Transfer</span>
+							</div>
+							<span class="chevron">
+								<i class="bi bi-arrow-down-circle-fill"></i>
+							</span>
+						</button>
+						<div class="seccion-cuerpo abierto">
+							<table>
+								
+								<HeaderTable />
+								<tbody>
+									<tr>
+										<td class="fila-label">Lima</td>
+										<td><input type="radio" name="transfer-lima" value="1" /></td>
+										<td><input type="radio" name="transfer-lima" value="2" /></td>
+										<td><input type="radio" name="transfer-lima" value="3" /></td>
+										<td><input type="radio" name="transfer-lima" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">Cusco</td>
+										<td><input type="radio" name="transfer-cusco" value="1" /></td>
+										<td><input type="radio" name="transfer-cusco" value="2" /></td>
+										<td><input type="radio" name="transfer-cusco" value="3" /></td>
+										<td><input type="radio" name="transfer-cusco" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">Valle Sagrado</td>
+										<td><input type="radio" name="transfer-valle" value="1" /></td>
+										<td><input type="radio" name="transfer-valle" value="2" /></td>
+										<td><input type="radio" name="transfer-valle" value="3" /></td>
+										<td><input type="radio" name="transfer-valle" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">Servicio de Tren a Machu Picchu</td>
+										<td><input type="radio" name="transfer-arequipa" value="1" /></td>
+										<td><input type="radio" name="transfer-arequipa" value="2" /></td>
+										<td><input type="radio" name="transfer-arequipa" value="3" /></td>
+										<td><input type="radio" name="transfer-arequipa" value="4" /></td>
+									</tr>
+
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-1"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-1" value="1" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-1" value="2" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-1" value="3" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-1" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-2"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-2" value="1" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-2" value="2" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-2" value="3" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-2" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-3"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-3" value="1" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-3" value="2" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-3" value="3" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-3" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-4"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-4" value="1" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-4" value="2" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-4" value="3" /></td>
+										<td><input type="radio" name="hotel-transfer-calificacion-4" value="4" /></td>
+									</tr>
+								</tbody>
+							</table>
+							<div>
+
+								<p class="comentarioText">Comentario</p>
+
+								<textarea name="comentarioHotelTransfer" placeholder=""></textarea>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="seccion">
+						<button type="button" class="seccion-header" aria-expanded="false">
+							<div class="seccion-titulo">
+								<span>Tours y guías turísticos</span>
+							</div>
+							<span class="chevron">
+								<i class="bi bi-arrow-down-circle-fill"></i>
+							</span>
+						</button>
+						<div class="seccion-cuerpo">
+							<table>
+								<HeaderTable />
+								<tbody>
+									<tr>
+										<td class="fila-label">Tour a la ciudad de Lima</td>
+										<td><input type="radio" name="guia-lima" value="1" /></td>
+										<td><input type="radio" name="guia-lima" value="2" /></td>
+										<td><input type="radio" name="guia-lima" value="3" /></td>
+										<td><input type="radio" name="guia-lima" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">Tour a la ciudad de Lima & museo</td>
+										<td><input type="radio" name="guia-lima-museo" value="1" /></td>
+										<td><input type="radio" name="guia-lima-museo" value="2" /></td>
+										<td><input type="radio" name="guia-lima-museo" value="3" /></td>
+										<td><input type="radio" name="guia-lima-museo" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">Tour a la ciudad de Cusco</td>
+										<td><input type="radio" name="guia-ciudad-cusco" value="1" /></td>
+										<td><input type="radio" name="guia-ciudad-cusco" value="2" /></td>
+										<td><input type="radio" name="guia-ciudad-cusco" value="3" /></td>
+										<td><input type="radio" name="guia-ciudad-cusco" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">Pisac & Ollantaytambo</td>
+										<td><input type="radio" name="guia-pisac" value="1" /></td>
+										<td><input type="radio" name="guia-pisac" value="2" /></td>
+										<td><input type="radio" name="guia-pisac" value="3" /></td>
+										<td><input type="radio" name="guia-pisac" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">Salineras de maras</td>
+										<td><input type="radio" name="guia-piscinas-moray" value="1" /></td>
+										<td><input type="radio" name="guia-piscinas-moray" value="2" /></td>
+										<td><input type="radio" name="guia-piscinas-moray" value="3" /></td>
+										<td><input type="radio" name="guia-piscinas-moray" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">Excursión a Machu Picchu</td>
+										<td><input type="radio" name="guia-machu-picchu" value="1" /></td>
+										<td><input type="radio" name="guia-machu-picchu" value="2" /></td>
+										<td><input type="radio" name="guia-machu-picchu" value="3" /></td>
+										<td><input type="radio" name="guia-machu-picchu" value="4" /></td>
+									</tr>
+
+
+
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-1"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="tours-guia-1" value="1" /></td>
+										<td><input type="radio" name="tours-guia-1" value="2" /></td>
+										<td><input type="radio" name="tours-guia-1" value="3" /></td>
+										<td><input type="radio" name="tours-guia-1" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-2"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="tours-guia-2" value="1" /></td>
+										<td><input type="radio" name="tours-guia-2" value="2" /></td>
+										<td><input type="radio" name="tours-guia-2" value="3" /></td>
+										<td><input type="radio" name="tours-guia-2" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-3"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="tours-guia-3" value="1" /></td>
+										<td><input type="radio" name="tours-guia-3" value="2" /></td>
+										<td><input type="radio" name="tours-guia-3" value="3" /></td>
+										<td><input type="radio" name="tours-guia-3" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-4"   placeholder="Ingrese otra ciudad" /></td>
+										<td><input type="radio" name="tours-guia-4" value="1" /></td>
+										<td><input type="radio" name="tours-guia-4" value="2" /></td>
+										<td><input type="radio" name="tours-guia-4" value="3" /></td>
+										<td><input type="radio" name="tours-guia-4" value="4" /></td>
+									</tr>
+								</tbody>
+							</table>
+							<div>
+								<p class="comentarioText">Comentario</p>
+								<textarea name="comentarioToursGuia" placeholder=""></textarea>
+							</div>
+						</div>
+					</div>
+
+					<div class="seccion">
+						<button type="button" class="seccion-header" aria-expanded="false">
+							<div class="seccion-titulo">
+								<span>Hoteles</span>
+							</div>
+							<span class="chevron">
+								<i class="bi bi-arrow-down-circle-fill"></i>
+							</span>
+						</button>
+						<div class="seccion-cuerpo">
+							<table>
+								<HeaderTable />
+								<tbody>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="Lima" value="Lima" disabled placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-lima" placeholder="Nombre del Hotel" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-lima-calificacion" value="1" /></td>
+										<td><input type="radio" name="hotel-lima-calificacion" value="2" /></td>
+										<td><input type="radio" name="hotel-lima-calificacion" value="3" /></td>
+										<td><input type="radio" name="hotel-lima-calificacion" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="Cusco" value="Cusco" disabled placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-cusco" placeholder="Nombre del Hotel" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-cusco-calificacion" value="1" /></td>
+										<td><input type="radio" name="hotel-cusco-calificacion" value="2" /></td>
+										<td><input type="radio" name="hotel-cusco-calificacion" value="3" /></td>
+										<td><input type="radio" name="hotel-cusco-calificacion" value="4" /></td>
+									</tr>
+
+
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="machu-picchu" value="Machu Picchu" disabled placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-machu-picchu" placeholder="Nombre del Hotel" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-machu-picchu-calificacion" value="1" /></td>
+										<td><input type="radio" name="hotel-machu-picchu-calificacion" value="2" /></td>
+										<td><input type="radio" name="hotel-machu-picchu-calificacion" value="3" /></td>
+										<td><input type="radio" name="hotel-machu-picchu-calificacion" value="4" /></td>
+									</tr>
+
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="valle-sagrado" value="Valle Sagrado" disabled placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-valle-sagrado" placeholder="Nombre del Hotel" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-valle-sagrado-calificacion" value="1" /></td>
+										<td><input type="radio" name="hotel-valle-sagrado-calificacion" value="2" /></td>
+										<td><input type="radio" name="hotel-valle-sagrado-calificacion" value="3" /></td>
+										<td><input type="radio" name="hotel-valle-sagrado-calificacion" value="4" /></td>
+									</tr>
+
+
+
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-1"  placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-nombre-1" placeholder="Nombre del Hotel" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-calificacion-1" value="1" /></td>
+										<td><input type="radio" name="hotel-calificacion-1" value="2" /></td>
+										<td><input type="radio" name="hotel-calificacion-1" value="3" /></td>
+										<td><input type="radio" name="hotel-calificacion-1" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-2"  placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-nombre-2" placeholder="Nombre del Hotel" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-calificacion-2" value="1" /></td>
+										<td><input type="radio" name="hotel-calificacion-2" value="2" /></td>
+										<td><input type="radio" name="hotel-calificacion-2" value="3" /></td>
+										<td><input type="radio" name="hotel-calificacion-2" value="4" /></td>
+									</tr>
+
+
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-3"  placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-nombre-3" placeholder="Nombre del Hotel" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-calificacion-3" value="1" /></td>
+										<td><input type="radio" name="hotel-calificacion-3" value="2" /></td>
+										<td><input type="radio" name="hotel-calificacion-3" value="3" /></td>
+										<td><input type="radio" name="hotel-calificacion-3" value="4" /></td>
+									</tr>
+
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_hotel">
+												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-4"  placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-nombre-4" placeholder="Nombre del Hotel" />
+											</div>
+										</td>
+										<td><input type="radio" name="hotel-calificacion-4" value="1" /></td>
+										<td><input type="radio" name="hotel-calificacion-4" value="2" /></td>
+										<td><input type="radio" name="hotel-calificacion-4" value="3" /></td>
+										<td><input type="radio" name="hotel-calificacion-4" value="4" /></td>
+									</tr>
+
+								</tbody>
+							</table>
+							<div>
+
+								<p class="comentarioText">Comentario</p>
+
+								<textarea name="comentarioHotel" placeholder=""></textarea>
+							</div>
+						</div>
+					</div>
+
+					<div class="seccion">
+						<button type="button" class="seccion-header" aria-expanded="false">
+							<div class="seccion-titulo">
+								<span>Restaurantes</span>
+							</div>
+							<span class="chevron">
+								<i class="bi bi-arrow-down-circle-fill"></i>
+							</span>
+						</button>
+						<div class="seccion-cuerpo">
+							<table>
+								<HeaderTable />
+								<tbody>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_resturante">
+												<input class="input-restaurante" type="text" name="rest-ubicacion-1" placeholder="Ubicación" />
+												<input class="input-restaurante" type="text" name="rest-nombre-1" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
+										<td><input type="radio" name="rest-calif-1" value="1" /></td>
+										<td><input type="radio" name="rest-calif-1" value="2" /></td>
+										<td><input type="radio" name="rest-calif-1" value="3" /></td>
+										<td><input type="radio" name="rest-calif-1" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_resturante">
+												<input class="input-restaurante" type="text" name="rest-ubicacion-2" placeholder="Ubicación" />
+												<input class="input-restaurante" type="text" name="rest-nombre-2" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
+										<td><input type="radio" name="rest-calif-2" value="1" /></td>
+										<td><input type="radio" name="rest-calif-2" value="2" /></td>
+										<td><input type="radio" name="rest-calif-2" value="3" /></td>
+										<td><input type="radio" name="rest-calif-2" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_resturante">
+												<input class="input-restaurante" type="text" name="rest-ubicacion-3" placeholder="Ubicación" />
+												<input class="input-restaurante" type="text" name="rest-nombre-3" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
+										<td><input type="radio" name="rest-calif-3" value="1" /></td>
+										<td><input type="radio" name="rest-calif-3" value="2" /></td>
+										<td><input type="radio" name="rest-calif-3" value="3" /></td>
+										<td><input type="radio" name="rest-calif-3" value="4" /></td>
+									</tr>
+									<tr>
+										<td class="fila-label">
+											<div class="container-input_resturante">
+												<input class="input-restaurante" type="text" name="rest-ubicacion-4" placeholder="Ubicación" />
+												<input class="input-restaurante" type="text" name="rest-nombre-4" placeholder="Nombre Restaurante" />
+											</div>
+										</td>
+										<td><input type="radio" name="rest-calif-4" value="1" /></td>
+										<td><input type="radio" name="rest-calif-4" value="2" /></td>
+										<td><input type="radio" name="rest-calif-4" value="3" /></td>
+										<td><input type="radio" name="rest-calif-4" value="4" /></td>
+									</tr>
+								</tbody>
+							</table>
+							<div>
+
+								<p class="comentarioText">Comentario</p>
+
+								<textarea name="comentarioRestaurante" placeholder=""></textarea>
+							</div>
+						</div>
+					</div>
+
+					<div class="seccion seccion-comentarios">
+						<p class="comentarioText">Comentarios Generales y/o Sugerencias</p>
+							<div class="comentarios-wrap">
+								<textarea
+									name="comentarios"
+									placeholder="Cuéntenos su experiencia..."
+									rows="5"
+								></textarea>
+							</div>
+					</div>
+
+					<div class="max-w-xl mx-auto p-6 bg-white rounded-2xl shadow-sm border border-gray-100 mt-8">
+						<p class="text-gray-800 font-bold mb-4 text-center">
+							¿Qué tan probable es que recomiendes nuestro servicio?
+						</p>
+						<div class="input-radioValoracion">
+							{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((val) => (
+								<input
+									type="checkbox"
+									name="rating-check"
+									value={val}
+									data-value={val}
+									class="rating-input"
+									required={val === 1}
+								/>
+							))}
+						</div>
+						<input
+							id="calificacion"
+							hidden
+							type="number"
+							value="0"
+							name="calificacion_final"
+							readonly
+						/>
+					</div>
+
+					<div class="form-footer mt-8">
+						<p class="footer-note">
+							Nuestro más sincero agradecimiento por llenar nuestro formulario de evaluación
+						</p>
+						<button type="submit" class="button btn-enviar">
+							Enviar evaluación →
+						</button>
+					</div>
+
+				</form>
+			</div>
+
+			<div class="container-logo">
+				<img
+					src="https://res.cloudinary.com/dlgeap8h0/image/upload/q_auto/f_auto/v1776376128/footer_e5ishe.png"
+					alt="Ilustración de feedback"
+					class="imagen_logofiesta"
+				/>
+			</div>
+
+		</section>
+	</main>
+</BaseLayout>
+
+<script is:inline src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script is:inline>
+	document.querySelectorAll(".seccion-header").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const cuerpo = btn.nextElementSibling;
+			const abierto = cuerpo.classList.contains("abierto");
+			cuerpo.classList.toggle("abierto", !abierto);
+			btn.setAttribute("aria-expanded", String(!abierto));
+		});
+	});
+
+	document.querySelectorAll(".rating-input").forEach((btn) => {
+		btn.addEventListener("click", () => {
+			const valorSeleccionado = parseInt(btn.dataset.value);
+			document.getElementById("calificacion").value = valorSeleccionado;
+
+			document.querySelectorAll(".rating-input").forEach((input) => {
+				input.checked = parseInt(input.dataset.value) <= valorSeleccionado;
+			});
+		});
+	});
+
+	const URL_API = "https://limited-cathy-peru-luxury-54ebd510.koyeb.app/evaluacion";
+	const form = document.querySelector(".form-contacto");
+
+	const mapCalificacion = (valor) => {
+		const notas = {
+			"4": "Excelente",
+			"3": "Bueno",
+			"2": "Regular",
+			"1": "Malo",
+		};
+		return notas[valor] || null;
+	};
+
+	form?.addEventListener("submit", async (e) => {
+		e.preventDefault();
+
+		const btn = form.querySelector("button[type='submit']");
+		btn.disabled = true;
+		btn.innerText = "Enviando...";
+
+		const formData = new FormData(form);
+
+		const restaurantes = [];
+		for (let i = 1; i <= 4; i++) {
+			const nombre = formData.get(`rest-nombre-${i}`);
+			const ubi    = formData.get(`rest-ubicacion-${i}`);
+			const cal    = formData.get(`rest-calif-${i}`);
+			if (nombre || ubi || cal) {
+				restaurantes.push({
+					restaurante_name:          nombre || "N/A",
+					restaurante_ubicacion:     ubi    || "N/A",
+					restaurante_calificacion:  mapCalificacion(cal) || "No evaluado",
+				});
+			}
+		}
+
+		const data = {
+			nombre:       formData.get("nombre"),
+			email:        formData.get("email"),
+			fecha:        formData.get("fecha"),
+			comentarioHotelTransfer: formData.get("comentarioHotelTransfer"),
+			comentarioHotel: formData.get("comentarioHotel"),
+			comentarioRestaurante: formData.get("comentarioRestaurante"),
+			comentariosToursGuia: formData.get("comentarioToursGuia"),
+			calificacion: parseInt(document.getElementById("calificacion").value) || 0,
+
+			hotelTransfer: [
+				{ hotelTransfer_name: "Lima",         hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-lima"))     },
+				{ hotelTransfer_name: "Cusco",        hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-cusco"))    },
+				{ hotelTransfer_name: "Valle Sagrado",hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-valle"))    },
+				{ hotelTransfer_name: "Servicio de Tren a Machu Picchu",     hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-arequipa")) },
+				
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-1"),     hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-1")) },
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-2"),     hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-2")) },
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-3"),     hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-3")) },
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-4"),     hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-4")) },
+			].filter((i) => i.hotelTransfer_calificacion),
+
+			tours: [
+				{ tours_name: "Recorrido por la ciudad de Lima", tours_calificacion: mapCalificacion(formData.get("guia-lima"))  },
+				{ tours_name: "Recorrido por la ciudad de Lima y museo", tours_calificacion: mapCalificacion(formData.get("guia-lima-museo")) },
+				{ tours_name: "Tour por la ciudad de Cusco",tours_calificacion: mapCalificacion(formData.get("guia-ciudad-cusco")) },
+				{ tours_name: "Pisac y Ollantaytambo",tours_calificacion: mapCalificacion(formData.get("guia-pisac")) },
+				{ tours_name: "Piscinas salinas de Moray y Maras",tours_calificacion: mapCalificacion(formData.get("guia-piscinas-moray")) },
+				{ tours_name: "Excursión a Machu Picchu",tours_calificacion: mapCalificacion(formData.get("guia-machu-picchu")) },
+				
+				
+				{ tours_name: formData.get("tours-nombre-1"),tours_calificacion: mapCalificacion(formData.get("tours-guia-1")) },
+				{ tours_name: formData.get("tours-nombre-2"),tours_calificacion: mapCalificacion(formData.get("tours-guia-2")) },
+				{ tours_name: formData.get("tours-nombre-3"),tours_calificacion: mapCalificacion(formData.get("tours-guia-3")) },
+				{ tours_name: formData.get("tours-nombre-4"),tours_calificacion: mapCalificacion(formData.get("tours-guia-4")) },
+			].filter((i) => i.tours_calificacion),
+
+			hotel: [
+				{ hotel_ubicacion: "Lima",  hotel_name: formData.get("hotel-lima"), hotel_calificacion: mapCalificacion(formData.get("hotel-lima-calificacion"))  },
+				{ hotel_ubicacion: "Cusco", hotel_name: formData.get("hotel-cusco"), hotel_calificacion: mapCalificacion(formData.get("hotel-cusco-calificacion")) },
+				{ hotel_ubicacion: "Machu Picchu", hotel_name: formData.get("hotel-machu-picchu"), hotel_calificacion: mapCalificacion(formData.get("hotel-machu-picchu-calificacion")) },
+				{ hotel_ubicacion: "Valle Sagrado", hotel_name: formData.get("hotel-valle-sagrado"), hotel_calificacion: mapCalificacion(formData.get("hotel-valle-sagrado-calificacion")) },
+
+				{ hotel_ubicacion: formData.get("hotel-ubicacion-1"), hotel_name: formData.get("hotel-nombre-1"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-1")) },
+				{ hotel_ubicacion: formData.get("hotel-ubicacion-2"), hotel_name: formData.get("hotel-nombre-2"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-2")) },
+				{ hotel_ubicacion: formData.get("hotel-ubicacion-3"), hotel_name: formData.get("hotel-nombre-3"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-3")) },
+				{ hotel_ubicacion: formData.get("hotel-ubicacion-4"), hotel_name: formData.get("hotel-nombre-4"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-4")) },
+
+
+			].filter((i) => i.hotel_calificacion),
+
+			restaurantes: restaurantes,
+			comentario:   formData.get("comentarios") || "",
+		};
+
+		try {
+			const response = await fetch(URL_API, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(data),
+			});
+
+			if (response.ok) {
+				Swal.fire({
+					title: '¡Éxito!',
+					text: 'Evaluación enviada con éxito.',
+					icon: 'success',
+					confirmButtonText: 'Cerrar'
+				})
+				form.reset();
+				document.getElementById("calificacion").value = "0";
+			} else {
+				Swal.fire({
+					title: 'Error!',
+					text: 'Error al enviar. Inténtalo de nuevo.',
+					icon: 'error',
+					confirmButtonText: 'Cerrar'
+				})
+			}
+		} catch (error) {
+			console.error("Error:", error);
+			alert("Error de conexión con el servidor.");
+		} finally {
+			btn.innerText = "Enviar evaluación →";
+			btn.disabled = false;
+		}
+	});
+</script>
+
+<style>
+
+	.input-hotel-transfer{
+		width: 100%;
+		height: 40px;
+		padding: 8px;
+		border-radius: 10px;
+		outline: none;
+		border: 1px solid rgb(189, 189, 189);
+	}
+
+	.comentarioText{
+		color:rgb(89, 89, 89);
+		font-weight: bold;
+		margin-top: 20px;
+		margin-bottom: 10px;
+		font-size: 17px;
+	}
+
+	.seccion-comentarios{
+		padding: 20px;
+	}
+
+	.container-logo{
+		width:100%;
+		display:flex;
+		justify-content:center;
+		align-items:center;	
+	}
+	.imagen_logofiesta{
+		width:450px;
+		height:50px;
+	}
+</style>
