@@ -1,4 +1,24 @@
 ---
+
+const banderaSpanol =
+  "https://res.cloudinary.com/dlgeap8h0/image/upload/spanol_nisxya.webp";
+
+const banderaEngland =
+  "https://res.cloudinary.com/dlgeap8h0/image/upload/eeuu_zp1ijv.webp";
+const currentPath = Astro.url.pathname;
+const currentLocale = Astro.currentLocale || "es";
+const isSpanish = currentLocale === "es";
+const targetLocale = isSpanish ? "en" : "es";
+const targetLabel = isSpanish ? "EN" : "ES";
+const targetFlag = isSpanish ? banderaEngland : banderaSpanol;
+const getTargetLink = () => {
+  const cleanPath = currentPath.replace(/^\/en(\/|$)/, "/") || "/";
+  return targetLocale === "en"
+    ? `/en${cleanPath}`.replace(/\/+/g, "/")
+    : cleanPath;
+};
+
+
 ---
 <div class="container-idiomas">
     <div class="language-switcher">
