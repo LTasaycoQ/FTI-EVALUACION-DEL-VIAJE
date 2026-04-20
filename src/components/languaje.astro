@@ -1,0 +1,92 @@
+---
+---
+<div class="container-idiomas">
+    <div class="language-switcher">
+    <button id="btn-es" class="lang-btn active"><img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1771217543/spanol_nisxya.webp" alt=""> ES</button>
+    <button id="btn-en" class="lang-btn"><img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1771217543/eeuu_zp1ijv.webp" alt=""> EN</button>
+    <button id="btn-pr" class="lang-btn"><img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1776722728/istockphoto-483663073-612x612_pvsazb.jpg" alt=""> EN</button>
+    </div>
+</div>
+
+<style>
+
+.container-idiomas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.lang-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.imagenSpanol{
+    width: 20px;
+}
+
+.language-switcher {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.lang-btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  background: #eee;
+  transition: all 0.3s ease;
+}
+
+.lang-btn.active {
+  background: #2e7d32;
+  color: white;
+}
+
+.lang-btn:hover {
+  transform: scale(1.05);
+}
+</style>
+
+
+
+<script is:inline>
+  const savedLang = localStorage.getItem("lang") || "es";
+
+  function setActive(lang) {
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.classList.remove("active");
+    });
+    document.querySelector(`#btn-${lang}`).classList.add("active");
+  }
+
+  setActive(savedLang);
+  window.dispatchEvent(new CustomEvent("changeLang", { detail: savedLang }));
+
+  document.getElementById("btn-es").addEventListener("click", () => {
+    localStorage.setItem("lang", "es");
+    setActive("es");
+    window.dispatchEvent(new CustomEvent("changeLang", { detail: "es" }));
+  });
+
+  document.getElementById("btn-en").addEventListener("click", () => {
+    localStorage.setItem("lang", "en");
+    setActive("en");
+    window.dispatchEvent(new CustomEvent("changeLang", { detail: "en" }));
+  });
+
+document.getElementById("btn-pr").addEventListener("click", () => {
+    localStorage.setItem("lang", "pr");
+    setActive("pr");
+    window.dispatchEvent(new CustomEvent("changeLang", { detail: "pr" }));
+  });
+</script>

@@ -315,6 +315,18 @@ textarea:focus {
 }
 
 
+.idiomaContainerFuncion{
+    width: 70%;
+    height: 25px;
+    background-color: #77BF42;
+    border-radius: 0px 0px 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #057c48;
+}
 
 @media (width < 48rem) {
     .container-input_hotel {
@@ -323,6 +335,10 @@ textarea:focus {
     }
     td.fila-label {
         font-size: 10px;
+    }
+
+    .idiomaContainerFuncion{
+        width: 100%;
     }
 
     .malo,
@@ -583,4 +599,12 @@ body::-webkit-scrollbar-thumb {
 }
 body::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+
+.containerIdiomas{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 50px;
 }
