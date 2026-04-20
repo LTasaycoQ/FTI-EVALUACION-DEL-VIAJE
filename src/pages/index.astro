@@ -683,7 +683,7 @@ const t = translations[currentLocale as keyof typeof translations];
 					title: '¡Éxito!',
 					text: 'Evaluación enviada con éxito.',
 					icon: 'success',
-					confirmButtonText: 'Cool'
+					confirmButtonText: 'Cerrar'
 				})
 				form.reset();
 				document.getElementById("calificacion").value = "0";
@@ -692,7 +692,7 @@ const t = translations[currentLocale as keyof typeof translations];
 					title: 'Error!',
 					text: 'Error al enviar. Inténtalo de nuevo.',
 					icon: 'error',
-					confirmButtonText: 'Cool'
+					confirmButtonText: 'Cerrar'
 				})
 			}
 		} catch (error) {
