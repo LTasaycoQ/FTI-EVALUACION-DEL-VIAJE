@@ -3,6 +3,57 @@ import BaseLayout from "../Layout/BaseLayout.astro";
 import HeaderTable from "../components/headerTable.astro";
 import Languaje from "../components/languaje.astro";
 
+const currentLocale = Astro.currentLocale || 'es';
+
+const translations = {
+  es: {
+    form: {
+      nombre: "Nombre",
+      apellido: "Apellido",
+      telefono: "Número Telefónico",
+      email: "Email",
+      mensaje: "Mensaje",
+      enviar: "Enviar",
+      enviando: "Enviando..."
+    },
+    contact: {
+      titulo: "Contacto Hotel:",
+      reservaciones: "Reservaciones:",
+      recepcion: "Recepción:"
+    },
+    alerts: {
+      successTitle: "¡Enviado!",
+      successText: "Tu mensaje ha sido enviado con éxito.",
+      errorTitle: "Error",
+      errorText: "No pudimos enviar el mensaje. Intenta de nuevo."
+    }
+  },
+  en: {
+    form: {
+      nombre: "Name",
+      apellido: "Last Name",
+      telefono: "Phone Number",
+      email: "Email",
+      mensaje: "Message",
+      enviar: "Send",
+      enviando: "Sending..."
+    },
+    contact: {
+      titulo: "Hotel Contact:",
+      reservaciones: "Reservations:",
+      recepcion: "Front Desk:"
+    },
+    alerts: {
+      successTitle: "Sent!",
+      successText: "Your message has been sent successfully.",
+      errorTitle: "Error",
+      errorText: "We couldn't send the message. Please try again."
+    }
+  }
+};
+
+const t = translations[currentLocale as keyof typeof translations];
+
 ---
 
 <BaseLayout>
@@ -12,7 +63,7 @@ import Languaje from "../components/languaje.astro";
 		<section class="containerEvaluacionViaje">
 
 			<div class="imagen-empresa">
-				<img src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1776716757/Group_21_jeevuu.png" alt="Logo de la empresa" />
+				<img src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1776726875/Group_22_vtvrk3.png" alt="Logo de la empresa" />
 			</div>
 
 			<div class="hero">
