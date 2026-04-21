@@ -207,6 +207,7 @@ thead th {
 
 thead th.col-label {
     text-align: left;
+    font-size: 14px;
 }
 
 tbody tr:hover {
@@ -337,6 +338,8 @@ textarea:focus {
     td.fila-label {
         font-size: 10px;
     }
+    thead th.col-label {
+    font-size: 10px;}
 
     .idiomaContainerFuncion{
         width: 100%;
