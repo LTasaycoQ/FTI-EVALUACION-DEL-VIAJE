@@ -446,7 +446,6 @@ import Languaje from "../components/languaje.astro";
 <script is:inline>
 
 	let idiomaSeleccionado = localStorage.getItem("lang") || "es";
-	let idiomaRegistrado = null;
 
 	document.querySelectorAll(".seccion-header").forEach((btn) => {
 		btn.addEventListener("click", () => {
@@ -484,13 +483,6 @@ import Languaje from "../components/languaje.astro";
 	form?.addEventListener("submit", async (e) => {
 		e.preventDefault();
 
-		const idiomaMap = {
-			es: "Español",
-			en: "English",
-			pr: "Portugues"
-			};
-
-idiomaRegistrado = idiomaMap[idiomaSeleccionado] || "Español";
 
 		const btn = form.querySelector("button[type='submit']");
 		btn.disabled = true;
@@ -517,7 +509,7 @@ idiomaRegistrado = idiomaMap[idiomaSeleccionado] || "Español";
 			nombre:       formData.get("nombre"),
 			email:        formData.get("email"),
 			fecha:        formData.get("fecha"),
-			idioma:       idiomaRegistrado,
+			idioma:       idiomaSeleccionado,
 			comentarioHotelTransfer: formData.get("comentarioHotelTransfer"),
 			comentarioHotel: formData.get("comentarioHotel"),
 			comentarioRestaurante: formData.get("comentarioRestaurante"),
@@ -796,10 +788,8 @@ idiomaRegistrado = idiomaMap[idiomaSeleccionado] || "Español";
 	applyLang(savedLang);
 
 	window.addEventListener("changeLang", (e) => {
-		localStorage.setItem("lang", e.detail);
-		idiomaSeleccionado = e.detail; 
 		applyLang(e.detail);
-		});
+	});
 </script>
 
 <style>
