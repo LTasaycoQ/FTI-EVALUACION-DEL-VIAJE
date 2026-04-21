@@ -6,13 +6,13 @@ import Languaje from "../components/languaje.astro";
 
 <BaseLayout>
 	<main>
-		<Languaje />
 		
 		<section class="containerEvaluacionViaje">
 
 			<div class="imagen-empresa">
 				<img src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1776726875/Group_22_vtvrk3.png" alt="Logo de la empresa" />
 			</div>
+			<Languaje />
 
 			<div class="hero">
 				<h1>EVALUACIÓN DEL VIAJE</h1>
@@ -42,11 +42,7 @@ import Languaje from "../components/languaje.astro";
 						</div>
 					</div>
 
-					<div class="container-datosUnico mb-8">
-						<i class="bi bi-envelope-at-fill"></i>
-						<input class="datosForm-personal" type="email" name="email" placeholder="Correo electrónico" required />
-					</div>
-
+					
 					<!-- HOTEL TRANSFER -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="true">
@@ -401,11 +397,21 @@ import Languaje from "../components/languaje.astro";
 						</div>
 					</div>
 
+
 					<!-- COMENTARIOS GENERALES -->
 					<div class="seccion seccion-comentarios">
 						<p class="comentarioText">Comentarios Generales y/o Sugerencias</p>
 						<div class="comentarios-wrap">
 							<textarea name="comentarios" placeholder="Cuéntenos su experiencia..." rows="5"></textarea>
+						</div>
+					</div>
+
+					<div class="seccion seccion-comentarios">
+						<p class="correoText">¿Podría darnos su correo electrónico para contactarlo en relación a su viaje a Perú? Esta información es confidencial.</p>
+						<br>
+						<div class="container-datosUnico mb-8">
+							<i class="bi bi-envelope-at-fill"></i>
+							<input class="datosForm-personal" type="email" name="email" placeholder="Correo electrónico"  />
 						</div>
 					</div>
 
@@ -596,6 +602,7 @@ import Languaje from "../components/languaje.astro";
 			titulo:               "EVALUACIÓN DEL VIAJE",
 			comentario:           "Comentario",
 			comentariosGenerales: "Comentarios Generales y/o Sugerencias",
+			rcorreo:			   "¿Podría darnos su correo electrónico para contactarlo en relación a su viaje a Perú? Esta información es confidencial.",
 			recomendar:           "¿Qué tan probable es que recomiendes nuestro servicio?",
 			agradecimiento:       "Nuestro más sincero agradecimiento por llenar nuestro formulario de evaluación",
 			enviar:               "Enviar evaluación →",
