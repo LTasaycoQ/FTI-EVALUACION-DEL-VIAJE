@@ -445,7 +445,6 @@ import Languaje from "../components/languaje.astro";
 <script is:inline src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script is:inline>
 
-	let idiomaSeleccionado = localStorage.getItem("idioma") || "es";
 
 	document.querySelectorAll(".seccion-header").forEach((btn) => {
 		btn.addEventListener("click", () => {
@@ -508,7 +507,6 @@ import Languaje from "../components/languaje.astro";
 			nombre:       formData.get("nombre"),
 			email:        formData.get("email"),
 			fecha:        formData.get("fecha"),
-			idioma:       idiomaSeleccionado,
 			comentarioHotelTransfer: formData.get("comentarioHotelTransfer"),
 			comentarioHotel: formData.get("comentarioHotel"),
 			comentarioRestaurante: formData.get("comentarioRestaurante"),
