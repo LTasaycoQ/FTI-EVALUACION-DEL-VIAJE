@@ -484,14 +484,13 @@ import Languaje from "../components/languaje.astro";
 	form?.addEventListener("submit", async (e) => {
 		e.preventDefault();
 
-		if (idiomaSeleccionado === "es") {
-			idiomaRegistrado = "Español";
-		} else if (idiomaSeleccionado === "en") {
-			idiomaRegistrado = "English";
-		}else if (idiomaSeleccionado === "pr") {
-			idiomaRegistrado = "Portugues";
-			
-		}
+		const idiomaMap = {
+			es: "Español",
+			en: "English",
+			pr: "Portugues"
+			};
+
+idiomaRegistrado = idiomaMap[idiomaSeleccionado] || "Español";
 
 		const btn = form.querySelector("button[type='submit']");
 		btn.disabled = true;
@@ -797,8 +796,10 @@ import Languaje from "../components/languaje.astro";
 	applyLang(savedLang);
 
 	window.addEventListener("changeLang", (e) => {
+		localStorage.setItem("lang", e.detail);
+		idiomaSeleccionado = e.detail; 
 		applyLang(e.detail);
-	});
+		});
 </script>
 
 <style>
