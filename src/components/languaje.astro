@@ -110,7 +110,7 @@ const getTargetLink = () => {
 <script is:inline>
   function setActive(lang) {
     document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("active"));
-    const target = document.querySelector(`#btn-${lang}`);
+    const target = document.querySelector("#btn-" + lang);
     if (target) target.classList.add("active");
   }
 
@@ -120,13 +120,36 @@ const getTargetLink = () => {
     window.dispatchEvent(new CustomEvent("changeLang", { detail: lang }));
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  function initLangButtons() {
+    if (window.__langInitialized) return;
+    window.__langInitialized = true;
+
+    const btnEs = document.getElementById("btn-es");
+    const btnEn = document.getElementById("btn-en");
+    const btnPr = document.getElementById("btn-pr");
+
+    if (!btnEs || !btnEn || !btnPr) return;
+
+    btnEs.addEventListener("click", function() { changeLang("es"); });
+    btnEn.addEventListener("click", function() { changeLang("en"); });
+    btnPr.addEventListener("click", function() { changeLang("pr"); });
+
     const savedLang = localStorage.getItem("lang") || "es";
     setActive(savedLang);
-    window.dispatchEvent(new CustomEvent("changeLang", { detail: savedLang }));
-  });
 
-  document.getElementById("btn-es").addEventListener("click", () => changeLang("es"));
-  document.getElementById("btn-en").addEventListener("click", () => changeLang("en"));
-  document.getElementById("btn-pr").addEventListener("click", () => changeLang("pr"));
+    setTimeout(function() {
+      window.dispatchEvent(new CustomEvent("changeLang", { detail: savedLang }));
+    }, 80);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initLangButtons);
+  } else {
+    initLangButtons();
+  }
+
+  document.addEventListener("astro:page-load", function() {
+    window.__langInitialized = false;
+    initLangButtons();
+  });
 </script>
