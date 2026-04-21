@@ -21,12 +21,17 @@ const getTargetLink = () => {
 
 ---
 <div class="container-idiomas">
-    <div class="language-switcher">
-
-    <a href="/" id="btn-es" class="lang-btn active"><img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1771217543/spanol_nisxya.webp" alt=""> ES</a>
-    <a href="/en" id="btn-en" class="lang-btn"><img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1771217543/eeuu_zp1ijv.webp" alt=""> EN</a>
-    <a href="/pr" id="btn-pr" class="lang-btn"><img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1776722728/istockphoto-483663073-612x612_pvsazb.jpg" alt=""> PR</a>
-    </div>
+  <div class="language-switcher">
+    <button id="btn-es" class="lang-btn">
+      <img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1771217543/spanol_nisxya.webp" alt="Español" /> ES
+    </button>
+    <button id="btn-en" class="lang-btn">
+      <img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1771217543/eeuu_zp1ijv.webp" alt="English" /> EN
+    </button>
+    <button id="btn-pr" class="lang-btn">
+      <img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1776722728/istockphoto-483663073-612x612_pvsazb.jpg" alt="Português" /> PR
+    </button>
+  </div>
 </div>
 
 <style>
@@ -79,36 +84,26 @@ const getTargetLink = () => {
 }
 </style>
 
-
-
 <script is:inline>
-  const savedLang = localStorage.getItem("lang") || "es";
-
   function setActive(lang) {
-    document.querySelectorAll(".lang-btn").forEach(btn => {
-      btn.classList.remove("active");
-    });
-    document.querySelector(`#btn-${lang}`).classList.add("active");
+    document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("active"));
+    const target = document.querySelector(`#btn-${lang}`);
+    if (target) target.classList.add("active");
   }
 
-  setActive(savedLang);
-  window.dispatchEvent(new CustomEvent("changeLang", { detail: savedLang }));
+  function changeLang(lang) {
+    localStorage.setItem("lang", lang);
+    setActive(lang);
+    window.dispatchEvent(new CustomEvent("changeLang", { detail: lang }));
+  }
 
-  document.getElementById("btn-es").addEventListener("click", () => {
-    localStorage.setItem("lang", "es");
-    setActive("es");
-    window.dispatchEvent(new CustomEvent("changeLang", { detail: "es" }));
+  document.addEventListener("DOMContentLoaded", () => {
+    const savedLang = localStorage.getItem("lang") || "es";
+    setActive(savedLang);
+    window.dispatchEvent(new CustomEvent("changeLang", { detail: savedLang }));
   });
 
-  document.getElementById("btn-en").addEventListener("click", () => {
-    localStorage.setItem("lang", "en");
-    setActive("en");
-    window.dispatchEvent(new CustomEvent("changeLang", { detail: "en" }));
-  });
-
-document.getElementById("btn-pr").addEventListener("click", () => {
-    localStorage.setItem("lang", "pr");
-    setActive("pr");
-    window.dispatchEvent(new CustomEvent("changeLang", { detail: "pr" }));
-  });
+  document.getElementById("btn-es").addEventListener("click", () => changeLang("es"));
+  document.getElementById("btn-en").addEventListener("click", () => changeLang("en"));
+  document.getElementById("btn-pr").addEventListener("click", () => changeLang("pr"));
 </script>

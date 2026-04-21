@@ -2,58 +2,6 @@
 import BaseLayout from "../Layout/BaseLayout.astro";
 import HeaderTable from "../components/headerTable.astro";
 import Languaje from "../components/languaje.astro";
-
-const currentLocale = Astro.currentLocale || 'es';
-
-const translations = {
-  es: {
-    form: {
-      nombre: "Nombre",
-      apellido: "Apellido",
-      telefono: "Número Telefónico",
-      email: "Email",
-      mensaje: "Mensaje",
-      enviar: "Enviar",
-      enviando: "Enviando..."
-    },
-    contact: {
-      titulo: "Contacto Hotel:",
-      reservaciones: "Reservaciones:",
-      recepcion: "Recepción:"
-    },
-    alerts: {
-      successTitle: "¡Enviado!",
-      successText: "Tu mensaje ha sido enviado con éxito.",
-      errorTitle: "Error",
-      errorText: "No pudimos enviar el mensaje. Intenta de nuevo."
-    }
-  },
-  en: {
-    form: {
-      nombre: "Name",
-      apellido: "Last Name",
-      telefono: "Phone Number",
-      email: "Email",
-      mensaje: "Message",
-      enviar: "Send",
-      enviando: "Sending..."
-    },
-    contact: {
-      titulo: "Hotel Contact:",
-      reservaciones: "Reservations:",
-      recepcion: "Front Desk:"
-    },
-    alerts: {
-      successTitle: "Sent!",
-      successText: "Your message has been sent successfully.",
-      errorTitle: "Error",
-      errorText: "We couldn't send the message. Please try again."
-    }
-  }
-};
-
-const t = translations[currentLocale as keyof typeof translations];
-
 ---
 
 <BaseLayout>
@@ -72,7 +20,7 @@ const t = translations[currentLocale as keyof typeof translations];
 			</div>
 
 			<div class="intro-card">
-				<p>
+				<p data-i18n-seccion="intro.texto">
 					<strong>Estimado Visitante,</strong> lo invitamos a que nos dé
 					su opinión sobre nuestros servicios. Por favor, ayúdenos a identificar
 					a nuestros colaboradores que vienen desarrollando una labor de
@@ -86,49 +34,29 @@ const t = translations[currentLocale as keyof typeof translations];
 					<div class="container-datos">
 						<div class="container-datosUnico">
 							<i class="bi bi-person-fill"></i>
-							<input
-								class="datosForm-personal"
-								type="text"
-								name="nombre"
-								placeholder="Nombre completo"
-								required
-							/>
+							<input class="datosForm-personal" type="text" name="nombre" placeholder="Nombre completo" required />
 						</div>
 						<div class="container-datosUnico">
 							<i class="bi bi-calendar-date"></i>
-							<input
-								class="datosForm-personal"
-								type="date"
-								name="fecha"
-								placeholder="Fecha"
-								required
-							/>
+							<input class="datosForm-personal" type="date" name="fecha" required />
 						</div>
 					</div>
 
 					<div class="container-datosUnico mb-8">
 						<i class="bi bi-envelope-at-fill"></i>
-						<input
-							class="datosForm-personal"
-							type="email"
-							name="email"
-							placeholder="Correo electrónico"
-							required
-						/>
+						<input class="datosForm-personal" type="email" name="email" placeholder="Correo electrónico" required />
 					</div>
 
+					<!-- HOTEL TRANSFER -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="true">
 							<div class="seccion-titulo">
-								<span>Hotel Transfer</span>
+								<span data-i18n-seccion="titulos.transfer">Hotel Transfer</span>
 							</div>
-							<span class="chevron">
-								<i class="bi bi-arrow-down-circle-fill"></i>
-							</span>
+							<span class="chevron"><i class="bi bi-arrow-down-circle-fill"></i></span>
 						</button>
 						<div class="seccion-cuerpo abierto">
 							<table>
-								
 								<HeaderTable />
 								<tbody>
 									<tr>
@@ -153,36 +81,35 @@ const t = translations[currentLocale as keyof typeof translations];
 										<td><input type="radio" name="transfer-valle" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Servicio de Tren a Machu Picchu</td>
+										<td class="fila-label" data-i18n-seccion="transfer.servicio-tren">Servicio de Tren a Machu Picchu</td>
 										<td><input type="radio" name="transfer-arequipa" value="1" /></td>
 										<td><input type="radio" name="transfer-arequipa" value="2" /></td>
 										<td><input type="radio" name="transfer-arequipa" value="3" /></td>
 										<td><input type="radio" name="transfer-arequipa" value="4" /></td>
 									</tr>
-
 									<tr>
-										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-1"   placeholder="Ingrese otra ciudad" /></td>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-1" placeholder="Ingrese otra ciudad" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-1" value="1" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-1" value="2" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-1" value="3" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-1" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-2"   placeholder="Ingrese otra ciudad" /></td>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-2" placeholder="Ingrese otra ciudad" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-2" value="1" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-2" value="2" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-2" value="3" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-2" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-3"   placeholder="Ingrese otra ciudad" /></td>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-3" placeholder="Ingrese otra ciudad" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-3" value="1" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-3" value="2" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-3" value="3" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-3" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-4"   placeholder="Ingrese otra ciudad" /></td>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="hotel-transfer-nombre-4" placeholder="Ingrese otra ciudad" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-4" value="1" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-4" value="2" /></td>
 										<td><input type="radio" name="hotel-transfer-calificacion-4" value="3" /></td>
@@ -191,96 +118,89 @@ const t = translations[currentLocale as keyof typeof translations];
 								</tbody>
 							</table>
 							<div>
-
 								<p class="comentarioText">Comentario</p>
-
 								<textarea name="comentarioHotelTransfer" placeholder=""></textarea>
 							</div>
-
 						</div>
 					</div>
 
+					<!-- TOURS -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="false">
 							<div class="seccion-titulo">
-								<span>Tours y guías turísticos</span>
+								<span data-i18n-seccion="titulos.tours">Tours y guías turísticos</span>
 							</div>
-							<span class="chevron">
-								<i class="bi bi-arrow-down-circle-fill"></i>
-							</span>
+							<span class="chevron"><i class="bi bi-arrow-down-circle-fill"></i></span>
 						</button>
 						<div class="seccion-cuerpo">
 							<table>
 								<HeaderTable />
 								<tbody>
 									<tr>
-										<td class="fila-label">Tour a la ciudad de Lima</td>
+										<td class="fila-label" data-i18n-seccion="tours.lima">Tour a la ciudad de Lima</td>
 										<td><input type="radio" name="guia-lima" value="1" /></td>
 										<td><input type="radio" name="guia-lima" value="2" /></td>
 										<td><input type="radio" name="guia-lima" value="3" /></td>
 										<td><input type="radio" name="guia-lima" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Tour a la ciudad de Lima & museo</td>
+										<td class="fila-label" data-i18n-seccion="tours.lima-museo">Tour a la ciudad de Lima & museo</td>
 										<td><input type="radio" name="guia-lima-museo" value="1" /></td>
 										<td><input type="radio" name="guia-lima-museo" value="2" /></td>
 										<td><input type="radio" name="guia-lima-museo" value="3" /></td>
 										<td><input type="radio" name="guia-lima-museo" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Tour a la ciudad de Cusco</td>
+										<td class="fila-label" data-i18n-seccion="tours.cusco">Tour a la ciudad de Cusco</td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="1" /></td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="2" /></td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="3" /></td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Pisac & Ollantaytambo</td>
+										<td class="fila-label" data-i18n-seccion="tours.pisac">Pisac & Ollantaytambo</td>
 										<td><input type="radio" name="guia-pisac" value="1" /></td>
 										<td><input type="radio" name="guia-pisac" value="2" /></td>
 										<td><input type="radio" name="guia-pisac" value="3" /></td>
 										<td><input type="radio" name="guia-pisac" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Salineras de maras</td>
+										<td class="fila-label" data-i18n-seccion="tours.maras">Salineras de Maras</td>
 										<td><input type="radio" name="guia-piscinas-moray" value="1" /></td>
 										<td><input type="radio" name="guia-piscinas-moray" value="2" /></td>
 										<td><input type="radio" name="guia-piscinas-moray" value="3" /></td>
 										<td><input type="radio" name="guia-piscinas-moray" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Excursión a Machu Picchu</td>
+										<td class="fila-label" data-i18n-seccion="tours.machu">Excursión a Machu Picchu</td>
 										<td><input type="radio" name="guia-machu-picchu" value="1" /></td>
 										<td><input type="radio" name="guia-machu-picchu" value="2" /></td>
 										<td><input type="radio" name="guia-machu-picchu" value="3" /></td>
 										<td><input type="radio" name="guia-machu-picchu" value="4" /></td>
 									</tr>
-
-
-
 									<tr>
-										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-1"   placeholder="Ingrese otra ciudad" /></td>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-1" placeholder="Ingrese otra ciudad" /></td>
 										<td><input type="radio" name="tours-guia-1" value="1" /></td>
 										<td><input type="radio" name="tours-guia-1" value="2" /></td>
 										<td><input type="radio" name="tours-guia-1" value="3" /></td>
 										<td><input type="radio" name="tours-guia-1" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-2"   placeholder="Ingrese otra ciudad" /></td>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-2" placeholder="Ingrese otra ciudad" /></td>
 										<td><input type="radio" name="tours-guia-2" value="1" /></td>
 										<td><input type="radio" name="tours-guia-2" value="2" /></td>
 										<td><input type="radio" name="tours-guia-2" value="3" /></td>
 										<td><input type="radio" name="tours-guia-2" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-3"   placeholder="Ingrese otra ciudad" /></td>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-3" placeholder="Ingrese otra ciudad" /></td>
 										<td><input type="radio" name="tours-guia-3" value="1" /></td>
 										<td><input type="radio" name="tours-guia-3" value="2" /></td>
 										<td><input type="radio" name="tours-guia-3" value="3" /></td>
 										<td><input type="radio" name="tours-guia-3" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-4"   placeholder="Ingrese otra ciudad" /></td>
+										<td class="fila-label"><input class="hotel_input input-hotel-transfer" type="text" name="tours-nombre-4" placeholder="Ingrese otra ciudad" /></td>
 										<td><input type="radio" name="tours-guia-4" value="1" /></td>
 										<td><input type="radio" name="tours-guia-4" value="2" /></td>
 										<td><input type="radio" name="tours-guia-4" value="3" /></td>
@@ -295,14 +215,13 @@ const t = translations[currentLocale as keyof typeof translations];
 						</div>
 					</div>
 
+					<!-- HOTELES -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="false">
 							<div class="seccion-titulo">
-								<span>Hoteles</span>
+								<span data-i18n-seccion="titulos.hoteles">Hoteles</span>
 							</div>
-							<span class="chevron">
-								<i class="bi bi-arrow-down-circle-fill"></i>
-							</span>
+							<span class="chevron"><i class="bi bi-arrow-down-circle-fill"></i></span>
 						</button>
 						<div class="seccion-cuerpo">
 							<table>
@@ -311,7 +230,7 @@ const t = translations[currentLocale as keyof typeof translations];
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_hotel">
-												<input class="hotel_input input-restaurante" type="text" name="Lima" value="Lima" disabled placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="Lima" value="Lima" disabled />
 												<input class="hotel_input input-restaurante" type="text" name="hotel-lima" placeholder="Nombre del Hotel" />
 											</div>
 										</td>
@@ -323,7 +242,7 @@ const t = translations[currentLocale as keyof typeof translations];
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_hotel">
-												<input class="hotel_input input-restaurante" type="text" name="Cusco" value="Cusco" disabled placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="Cusco" value="Cusco" disabled />
 												<input class="hotel_input input-restaurante" type="text" name="hotel-cusco" placeholder="Nombre del Hotel" />
 											</div>
 										</td>
@@ -332,12 +251,10 @@ const t = translations[currentLocale as keyof typeof translations];
 										<td><input type="radio" name="hotel-cusco-calificacion" value="3" /></td>
 										<td><input type="radio" name="hotel-cusco-calificacion" value="4" /></td>
 									</tr>
-
-
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_hotel">
-												<input class="hotel_input input-restaurante" type="text" name="machu-picchu" value="Machu Picchu" disabled placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="machu-picchu" value="Machu Picchu" disabled />
 												<input class="hotel_input input-restaurante" type="text" name="hotel-machu-picchu" placeholder="Nombre del Hotel" />
 											</div>
 										</td>
@@ -346,11 +263,10 @@ const t = translations[currentLocale as keyof typeof translations];
 										<td><input type="radio" name="hotel-machu-picchu-calificacion" value="3" /></td>
 										<td><input type="radio" name="hotel-machu-picchu-calificacion" value="4" /></td>
 									</tr>
-
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_hotel">
-												<input class="hotel_input input-restaurante" type="text" name="valle-sagrado" value="Valle Sagrado" disabled placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="valle-sagrado" value="Valle Sagrado" disabled />
 												<input class="hotel_input input-restaurante" type="text" name="hotel-valle-sagrado" placeholder="Nombre del Hotel" />
 											</div>
 										</td>
@@ -359,13 +275,10 @@ const t = translations[currentLocale as keyof typeof translations];
 										<td><input type="radio" name="hotel-valle-sagrado-calificacion" value="3" /></td>
 										<td><input type="radio" name="hotel-valle-sagrado-calificacion" value="4" /></td>
 									</tr>
-
-
-
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_hotel">
-												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-1"  placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-1" placeholder="Ingrese otra ciudad" />
 												<input class="hotel_input input-restaurante" type="text" name="hotel-nombre-1" placeholder="Nombre del Hotel" />
 											</div>
 										</td>
@@ -377,7 +290,7 @@ const t = translations[currentLocale as keyof typeof translations];
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_hotel">
-												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-2"  placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-2" placeholder="Ingrese otra ciudad" />
 												<input class="hotel_input input-restaurante" type="text" name="hotel-nombre-2" placeholder="Nombre del Hotel" />
 											</div>
 										</td>
@@ -386,12 +299,10 @@ const t = translations[currentLocale as keyof typeof translations];
 										<td><input type="radio" name="hotel-calificacion-2" value="3" /></td>
 										<td><input type="radio" name="hotel-calificacion-2" value="4" /></td>
 									</tr>
-
-
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_hotel">
-												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-3"  placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-3" placeholder="Ingrese otra ciudad" />
 												<input class="hotel_input input-restaurante" type="text" name="hotel-nombre-3" placeholder="Nombre del Hotel" />
 											</div>
 										</td>
@@ -400,11 +311,10 @@ const t = translations[currentLocale as keyof typeof translations];
 										<td><input type="radio" name="hotel-calificacion-3" value="3" /></td>
 										<td><input type="radio" name="hotel-calificacion-3" value="4" /></td>
 									</tr>
-
 									<tr>
 										<td class="fila-label">
 											<div class="container-input_hotel">
-												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-4"  placeholder="Ingrese otra ciudad" />
+												<input class="hotel_input input-restaurante" type="text" name="hotel-ubicacion-4" placeholder="Ingrese otra ciudad" />
 												<input class="hotel_input input-restaurante" type="text" name="hotel-nombre-4" placeholder="Nombre del Hotel" />
 											</div>
 										</td>
@@ -413,26 +323,22 @@ const t = translations[currentLocale as keyof typeof translations];
 										<td><input type="radio" name="hotel-calificacion-4" value="3" /></td>
 										<td><input type="radio" name="hotel-calificacion-4" value="4" /></td>
 									</tr>
-
 								</tbody>
 							</table>
 							<div>
-
 								<p class="comentarioText">Comentario</p>
-
 								<textarea name="comentarioHotel" placeholder=""></textarea>
 							</div>
 						</div>
 					</div>
 
+					<!-- RESTAURANTES -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="false">
 							<div class="seccion-titulo">
-								<span>Restaurantes</span>
+								<span data-i18n-seccion="titulos.restaurantes">Restaurantes</span>
 							</div>
-							<span class="chevron">
-								<i class="bi bi-arrow-down-circle-fill"></i>
-							</span>
+							<span class="chevron"><i class="bi bi-arrow-down-circle-fill"></i></span>
 						</button>
 						<div class="seccion-cuerpo">
 							<table>
@@ -489,49 +395,31 @@ const t = translations[currentLocale as keyof typeof translations];
 								</tbody>
 							</table>
 							<div>
-
 								<p class="comentarioText">Comentario</p>
-
 								<textarea name="comentarioRestaurante" placeholder=""></textarea>
 							</div>
 						</div>
 					</div>
 
+					<!-- COMENTARIOS GENERALES -->
 					<div class="seccion seccion-comentarios">
 						<p class="comentarioText">Comentarios Generales y/o Sugerencias</p>
-							<div class="comentarios-wrap">
-								<textarea
-									name="comentarios"
-									placeholder="Cuéntenos su experiencia..."
-									rows="5"
-								></textarea>
-							</div>
+						<div class="comentarios-wrap">
+							<textarea name="comentarios" placeholder="Cuéntenos su experiencia..." rows="5"></textarea>
+						</div>
 					</div>
 
+					<!-- RATING -->
 					<div class="max-w-xl mx-auto p-6 bg-white rounded-2xl shadow-sm border border-gray-100 mt-8">
 						<p class="text-gray-800 font-bold mb-4 text-center">
 							¿Qué tan probable es que recomiendes nuestro servicio?
 						</p>
 						<div class="input-radioValoracion">
 							{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((val) => (
-								<input
-									type="checkbox"
-									name="rating-check"
-									value={val}
-									data-value={val}
-									class="rating-input"
-									required={val === 1}
-								/>
+								<input type="checkbox" name="rating-check" value={val} data-value={val} class="rating-input" required={val === 1} />
 							))}
 						</div>
-						<input
-							id="calificacion"
-							hidden
-							type="number"
-							value="0"
-							name="calificacion_final"
-							readonly
-						/>
+						<input id="calificacion" hidden type="number" value="0" name="calificacion_final" readonly />
 					</div>
 
 					<div class="form-footer mt-8">
@@ -547,11 +435,7 @@ const t = translations[currentLocale as keyof typeof translations];
 			</div>
 
 			<div class="container-logo">
-				<img
-					src="https://res.cloudinary.com/dlgeap8h0/image/upload/q_auto/f_auto/v1776376128/footer_e5ishe.png"
-					alt="Ilustración de feedback"
-					class="imagen_logofiesta"
-				/>
+				<img src="https://res.cloudinary.com/dlgeap8h0/image/upload/q_auto/f_auto/v1776376128/footer_e5ishe.png" alt="Ilustración de feedback" class="imagen_logofiesta" />
 			</div>
 
 		</section>
@@ -705,9 +589,208 @@ const t = translations[currentLocale as keyof typeof translations];
 	});
 </script>
 
-<style>
+<script is:inline>
+	const translations = {
+		es: {
+			titulo:               "EVALUACIÓN DEL VIAJE",
+			comentario:           "Comentario",
+			comentariosGenerales: "Comentarios Generales y/o Sugerencias",
+			recomendar:           "¿Qué tan probable es que recomiendes nuestro servicio?",
+			agradecimiento:       "Nuestro más sincero agradecimiento por llenar nuestro formulario de evaluación",
+			enviar:               "Enviar evaluación →",
+			placeholders: {
+				nombre:      "Nombre completo",
+				email:       "Correo electrónico",
+				ciudad:      "Ingrese otra ciudad",
+				hotel:       "Nombre del Hotel",
+				ubicacion:   "Ubicación",
+				restaurante: "Nombre Restaurante",
+				experiencia: "Cuéntenos su experiencia...",
+			},
+			header: {
+				calificacion: "Calificación",
+				malo:         "Malo",
+				regular:      "Regular",
+				bueno:        "Bueno",
+				excelente:    "Excelente",
+			},
+			secciones: {
+				titulos: {
+					transfer:     "Hotel Transfer",
+					tours:        "Tours y guías turísticos",
+					hoteles:      "Hoteles",
+					restaurantes: "Restaurantes",
+				},
+				transfer: {
+					"servicio-tren": "Servicio de Tren a Machu Picchu",
+				},
+				tours: {
+					lima:        "Tour a la ciudad de Lima",
+					"lima-museo": "Tour a la ciudad de Lima & museo",
+					cusco:       "Tour a la ciudad de Cusco",
+					pisac:       "Pisac & Ollantaytambo",
+					maras:       "Salineras de Maras",
+					machu:       "Excursión a Machu Picchu",
+				},
+				intro: {
+					texto: "Estimado Visitante, lo invitamos a que nos dé su opinión sobre nuestros servicios. Por favor, ayúdenos a identificar a nuestros colaboradores que vienen desarrollando una labor de excelencia para premiarlos y detectar en qué áreas debemos mejorar. Buscamos perfeccionar el arte de atender al turista.",
+				},
+			},
+		},
+		en: {
+			titulo:               "TRIP EVALUATION",
+			comentario:           "Comment",
+			comentariosGenerales: "General Comments and/or Suggestions",
+			recomendar:           "How likely are you to recommend our service?",
+			agradecimiento:       "Thank you sincerely for filling out our evaluation form",
+			enviar:               "Send evaluation →",
+			placeholders: {
+				nombre:      "Full name",
+				email:       "Email address",
+				ciudad:      "Enter another city",
+				hotel:       "Hotel Name",
+				ubicacion:   "Location",
+				restaurante: "Restaurant Name",
+				experiencia: "Tell us about your experience...",
+			},
+			header: {
+				calificacion: "Rating",
+				malo:         "Poor",
+				regular:      "Fair",
+				bueno:        "Good",
+				excelente:    "Excellent",
+			},
+			secciones: {
+				titulos: {
+					transfer:     "Hotel Transfer",
+					tours:        "Tours & tour guides",
+					hoteles:      "Hotels",
+					restaurantes: "Restaurants",
+				},
+				transfer: {
+					"servicio-tren": "Train Service to Machu Picchu",
+				},
+				tours: {
+					lima:         "City tour of Lima",
+					"lima-museo": "City tour of Lima & museum",
+					cusco:        "City tour of Cusco",
+					pisac:        "Pisac & Ollantaytambo",
+					maras:        "Maras Salt Mines",
+					machu:        "Excursion to Machu Picchu",
+				},
+				intro: {
+					texto: "Dear Visitor, we invite you to share your opinion about our services. Please help us identify our team members who are delivering excellent work so we can reward them, and detect areas where we need to improve. We seek to perfect the art of serving the traveler.",
+				},
+			},
+		},
+		pr: {
+			titulo:               "AVALIAÇÃO DA VIAGEM",
+			comentario:           "Comentário",
+			comentariosGenerales: "Comentários Gerais e/ou Sugestões",
+			recomendar:           "Qual a probabilidade de você recomendar nosso serviço?",
+			agradecimiento:       "Muito obrigado por preencher nosso formulário de avaliação",
+			enviar:               "Enviar avaliação →",
+			placeholders: {
+				nombre:      "Nome completo",
+				email:       "Endereço de e-mail",
+				ciudad:      "Digite outra cidade",
+				hotel:       "Nome do Hotel",
+				ubicacion:   "Localização",
+				restaurante: "Nome do Restaurante",
+				experiencia: "Conte-nos sobre sua experiência...",
+			},
+			header: {
+				calificacion: "Avaliação",
+				malo:         "Ruim",
+				regular:      "Regular",
+				bueno:        "Bom",
+				excelente:    "Excelente",
+			},
+			secciones: {
+				titulos: {
+					transfer:     "Hotel Transfer",
+					tours:        "Tours e guias turísticos",
+					hoteles:      "Hotéis",
+					restaurantes: "Restaurantes",
+				},
+				transfer: {
+					"servicio-tren": "Serviço de Trem para Machu Picchu",
+				},
+				tours: {
+					lima:         "Tour pela cidade de Lima",
+					"lima-museo": "Tour pela cidade de Lima & museu",
+					cusco:        "Tour pela cidade de Cusco",
+					pisac:        "Pisac & Ollantaytambo",
+					maras:        "Salinas de Maras",
+					machu:        "Excursão a Machu Picchu",
+				},
+				intro: {
+					texto: "Caro Visitante, convidamos você a nos dar sua opinião sobre nossos serviços. Por favor, ajude-nos a identificar nossos colaboradores que estão desenvolvendo um trabalho de excelência para premiá-los e detectar em quais áreas devemos melhorar. Buscamos aperfeiçoar a arte de atender ao turista.",
+				},
+			},
+		},
+	};
 
-	.input-hotel-transfer{
+	function applyLang(lang) {
+		const t = translations[lang] || translations.es;
+		const p = t.placeholders;
+
+		const h1 = document.querySelector(".hero h1");
+		if (h1) h1.textContent = t.titulo;
+
+		const btnEnviar = document.querySelector(".btn-enviar");
+		if (btnEnviar) btnEnviar.textContent = t.enviar;
+
+		document.querySelectorAll(".comentarioText").forEach((el) => {
+			el.textContent = el.closest(".seccion-comentarios")
+				? t.comentariosGenerales
+				: t.comentario;
+		});
+
+		const recomendarEl = document.querySelector(".max-w-xl p");
+		if (recomendarEl) recomendarEl.textContent = t.recomendar;
+
+		const footerNote = document.querySelector(".footer-note");
+		if (footerNote) footerNote.textContent = t.agradecimiento;
+
+		// Traducir headers de tabla
+		document.querySelectorAll("[data-i18n]").forEach((el) => {
+			const key = el.getAttribute("data-i18n");
+			if (t.header[key]) el.textContent = t.header[key];
+		});
+
+		// Traducir textos de secciones y filas
+		document.querySelectorAll("[data-i18n-seccion]").forEach((el) => {
+			const key            = el.getAttribute("data-i18n-seccion");
+			const [grupo, id]    = key.split(".");
+			const texto          = t.secciones?.[grupo]?.[id];
+			if (texto) el.textContent = texto;
+		});
+
+		const set = (selector, value) =>
+			document.querySelectorAll(selector).forEach((el) => (el.placeholder = value));
+
+		set("input[name='nombre']",                    p.nombre);
+		set("input[name='email']",                     p.email);
+		set(".input-hotel-transfer",                   p.ciudad);
+		set(".input-restaurante[name*='hotel']",       p.hotel);
+		set(".input-restaurante[name*='ubicacion']",   p.ubicacion);
+		set(".input-restaurante[name*='nombre']",      p.hotel);
+		set("input[name*='rest-nombre']",              p.restaurante);
+		set("input[name*='rest-ubicacion']",           p.ubicacion);
+		set("textarea[name='comentarios']",            p.experiencia);
+	}
+
+	const savedLang = localStorage.getItem("lang") || "es";
+	applyLang(savedLang);
+
+	window.addEventListener("changeLang", (e) => {
+		applyLang(e.detail);
+	});
+</script>
+
+<style>
+	.input-hotel-transfer {
 		width: 100%;
 		height: 40px;
 		padding: 8px;
@@ -715,27 +798,26 @@ const t = translations[currentLocale as keyof typeof translations];
 		outline: none;
 		border: 1px solid rgb(189, 189, 189);
 	}
-
-	.comentarioText{
-		color:rgb(89, 89, 89);
+	.comentarioText {
+		color: rgb(89, 89, 89);
 		font-weight: bold;
 		margin-top: 20px;
 		margin-bottom: 10px;
 		font-size: 17px;
 	}
-
-	.seccion-comentarios{
+	.seccion-comentarios {
 		padding: 20px;
 	}
-
-	.container-logo{
-		width:100%;
-		display:flex;
-		justify-content:center;
-		align-items:center;	
+	.container-logo {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
-	.imagen_logofiesta{
-		width:450px;
-		height:50px;
+	.imagen_logofiesta {
+		width: 450px;
+		height: 50px;
 	}
 </style>
+
+
