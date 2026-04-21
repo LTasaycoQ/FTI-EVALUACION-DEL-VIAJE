@@ -22,13 +22,13 @@ const getTargetLink = () => {
 ---
 <div class="container-idiomas">
   <div class="language-switcher">
-    <button id="btn-es" class="lang-btn">
+    <button id="btn-es" class="lang-btn boder-especial-left">
       <img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1771217543/spanol_nisxya.webp" alt="Español" /> ES
     </button>
-    <button id="btn-en" class="lang-btn">
+    <button id="btn-en" class="lang-btn boder-especial">
       <img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1771217543/eeuu_zp1ijv.webp" alt="English" /> EN
     </button>
-    <button id="btn-pr" class="lang-btn">
+    <button id="btn-pr" class="boder-especial-right lang-btn">
       <img class="imagenSpanol" src="https://res.cloudinary.com/dlgeap8h0/image/upload/v1776789189/Flag_of_Brazil.svg_dcr2kp.webp" alt="Português" /> PR
     </button>
   </div>
@@ -56,12 +56,20 @@ const getTargetLink = () => {
     width: 20px;
 }
 
+.boder-especial-left{
+  border-radius: 20px 0px 0px 20px !important;
+}
+.boder-especial-right{
+  border-radius: 0px 20px 20px 0px !important;
+}
+.boder-especial{
+  border-radius: 0px 0px 0px 0px  !important;
+}
 .language-switcher {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
-  width: 25%;
+  width: 22%;
   margin-bottom: 20px;
 }
 
