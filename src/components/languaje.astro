@@ -1,11 +1,4 @@
 ---
-import { Image } from "astro:assets";
-
-
-import img_pr from "../assets/banderas/Flag_of_Brazil.svg_dcr2kp.jpg";
-import img_es from "../assets/banderas/Flag_of_Spain.svg.png";
-import img_en from "../assets/banderas/Flag_of_the_United_States.svg.png";
-
 const banderaSpanol =
   "https://res.cloudinary.com/dlgeap8h0/image/upload/spanol_nisxya.webp";
 
@@ -29,13 +22,13 @@ const getTargetLink = () => {
 <div class="container-idiomas">
   <div class="language-switcher">
     <button id="btn-es" class="lang-btn boder-especial-left">
-      <Image class="imagenSpanol" src={img_es} alt="Español" /> ES
+      <img class="imagenSpanol" src="assets/banderas/Flag_of_Spain.svg.png" alt="Español" /> ES
     </button>
     <button id="btn-en" class="lang-btn boder-especial">
-      <Image class="imagenSpanol" src={img_en} alt="English" /> EN
+      <img class="imagenSpanol" src="assets/banderas/Flag_of_the_United_States.svg.png" alt="English" /> EN
     </button>
     <button id="btn-pr" class="boder-especial-right lang-btn">
-      <Image class="imagenSpanol" src={img_pr} alt="Português" /> PR
+      <img class="imagenSpanol" src="assets/banderas/Flag_of_Brazil.svg_dcr2kp.jpg" alt="Português" /> PR
     </button>
   </div>
 </div>
