@@ -58,12 +58,19 @@ const getTargetLink = () => {
 
 .language-switcher {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   gap: 14px;
   width: 25%;
   margin-bottom: 20px;
 }
 
+@media (width < 48rem) {
+.language-switcher {
+
+  width: 80%;
+  }
+}
 .lang-btn {
   border: none;
   padding: 8px 14px;
