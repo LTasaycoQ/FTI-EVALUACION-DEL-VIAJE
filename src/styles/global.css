@@ -584,6 +584,7 @@ textarea:focus {
 	/* ── Responsive ── */
 	@media (max-width: 768px) {
 		.container-datos {
+            
 			flex-direction: column;
 		}
 		.input-restaurante {

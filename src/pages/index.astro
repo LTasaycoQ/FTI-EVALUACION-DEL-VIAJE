@@ -34,12 +34,13 @@ import Languaje from "../components/languaje.astro";
 
 			<div class="containerForm">
 				<form class="form-contacto">
-					<div class="container-datos">
+					<div class="container-datos ">
 						<div class="container-datosUnico">
 							<i class="bi bi-person-fill"></i>
 							<input class="datosForm-personal" type="text" name="nombre" placeholder="Nombre completo" required />
 						</div>
-						<div class="container-datosUnico">
+						<br style="margin: 5px;">
+						<div class="container-datosUnico fecha-li">
 							<i class="bi bi-calendar-date"></i>
 							<input class="datosForm-personal" type="date" name="fecha" required />
 						</div>
@@ -763,6 +764,19 @@ document.addEventListener("astro:page-load", function() {
   background: #28652b;
   color: white;
   cursor: pointer;
+}
+
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none; /* clave para Safari */
+  height: 35px;
+
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: white;
+  color: #333;
 }
 
 @keyframes fadeIn {
