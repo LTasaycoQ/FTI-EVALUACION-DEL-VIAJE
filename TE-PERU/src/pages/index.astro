@@ -687,6 +687,31 @@ function initFormulario() {
   setTimeout(function() { applyLang(savedLang); }, 100);
 }
 
+
+function attachRestauranteValidation() {
+  for (var i = 1; i <= 4; i++) {
+    (function(idx) {
+      var radios = document.querySelectorAll("input[name='rest-calif-" + idx + "']");
+      var inputNombre = document.querySelector("input[name='rest-nombre-" + idx + "']");
+      var inputUbi    = document.querySelector("input[name='rest-ubicacion-" + idx + "']");
+
+      radios.forEach(function(radio) {
+        radio.addEventListener("change", function() {
+          var marcado = document.querySelector("input[name='rest-calif-" + idx + "']:checked");
+          if (marcado) {
+            if (inputNombre) inputNombre.required = true;
+            if (inputUbi)    inputUbi.required    = true;
+          } else {
+            if (inputNombre) inputNombre.required = false;
+            if (inputUbi)    inputUbi.required    = false;
+          }
+        });
+      });
+    })(i);
+  }
+}
+attachRestauranteValidation();
+
 // ── ARRANQUE SEGURO (funciona en iPad Safari, Chrome, Firefox) ──
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initFormulario);
