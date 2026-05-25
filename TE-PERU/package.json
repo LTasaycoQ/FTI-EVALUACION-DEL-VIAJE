@@ -12,7 +12,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/db": "^0.21.2",
+    "@supabase/supabase-js": "^2.106.0",
     "astro": "^6.1.6",
+    "pg": "^8.21.0",
     "sweetalert2": "^11.26.24"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.20.0"
   }
 }

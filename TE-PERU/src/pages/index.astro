@@ -5,11 +5,13 @@ import HeaderTable from "../components/headerTable.astro";
 import Languaje from "../components/languaje.astro";
 
 
+
 ---
 
 <BaseLayout>
 	<main>
 		
+
 		<section class="containerEvaluacionViaje">
 
 			<div class="imagen-empresa">
@@ -456,6 +458,9 @@ import Languaje from "../components/languaje.astro";
 			</div>
 
 		</section>
+
+		
+
 	</main>
 </BaseLayout>
 
@@ -479,18 +484,17 @@ function showModal(message) {
 }
 
 function initFormulario() {
+  makeRadiosDeselectable();
+
   if (window.__formInitialized) return;
 
   var form = document.querySelector(".form-contacto");
   var headers = document.querySelectorAll(".seccion-header");
 
-  // Si el DOM no está listo aún, salir
   if (!form || !headers.length) return;
 
   window.__formInitialized = true;
 
-  // ── SECCIONES DESPLEGABLES ──────────────────────────────
-  // IMPORTANTE: registrar headers ANTES de cualquier cloneNode
   headers.forEach(function(btn) {
     btn.addEventListener("click", function() {
       var cuerpo = btn.nextElementSibling;
@@ -501,7 +505,6 @@ function initFormulario() {
     });
   });
 
-  // ── RATING ─────────────────────────────────────────────
   function attachRating() {
     document.querySelectorAll(".rating-input").forEach(function(input) {
       input.addEventListener("click", function() {
@@ -516,8 +519,7 @@ function initFormulario() {
   }
   attachRating();
 
-  // ── ENVÍO DEL FORMULARIO ───────────────────────────────
-  var URL_API = "https://limited-cathy-peru-luxury-54ebd510.koyeb.app/evaluacion";
+  var URL_API = "https://organic-florencia-fiesta-tours-f2514923.koyeb.app/evaluacion";
 
   var mapCalificacion = function(valor) {
     var notas = { "4": "Excelente", "3": "Bueno", "2": "Regular", "1": "Malo" };
@@ -591,7 +593,7 @@ function initFormulario() {
         { hotel_ubicacion: formData.get("hotel-ubicacion-3"), hotel_name: formData.get("hotel-nombre-3"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-3")) },
         { hotel_ubicacion: formData.get("hotel-ubicacion-4"), hotel_name: formData.get("hotel-nombre-4"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-4")) },
       ].filter(function(item) { return item.hotel_calificacion; }),
-
+	  
       restaurantes: restaurantes,
       comentario:   formData.get("comentarios") || "",
     };
@@ -687,32 +689,74 @@ function initFormulario() {
   setTimeout(function() { applyLang(savedLang); }, 100);
 }
 
+function makeRadiosDeselectable() {
+  const radios = document.querySelectorAll('input[type="radio"]');
+  
+  radios.forEach(radio => {
+    let wasChecked = false;
+    
+    radio.addEventListener('click', function(e) {
+      if (wasChecked) {
+        this.checked = false;
+        wasChecked = false;
+        
+        const changeEvent = new Event('change', { bubbles: true });
+        this.dispatchEvent(changeEvent);
+        
+        if (this.classList.contains('rating-input')) {
+          const calInput = document.getElementById("calificacion");
+          if (calInput) calInput.value = "0";
+        }
+      } else {
+        wasChecked = true;
+      }
+    });
+    
+    radio.addEventListener('change', function() {
+      if (!this.checked) {
+        wasChecked = false;
+      }
+    });
+  });
+}
 
 function attachRestauranteValidation() {
   for (var i = 1; i <= 4; i++) {
     (function(idx) {
       var radios = document.querySelectorAll("input[name='rest-calif-" + idx + "']");
       var inputNombre = document.querySelector("input[name='rest-nombre-" + idx + "']");
-      var inputUbi    = document.querySelector("input[name='rest-ubicacion-" + idx + "']");
-
-      radios.forEach(function(radio) {
-        radio.addEventListener("change", function() {
-          var marcado = document.querySelector("input[name='rest-calif-" + idx + "']:checked");
-          if (marcado) {
-            if (inputNombre) inputNombre.required = true;
-            if (inputUbi)    inputUbi.required    = true;
-          } else {
-            if (inputNombre) inputNombre.required = false;
-            if (inputUbi)    inputUbi.required    = false;
+      var inputUbi = document.querySelector("input[name='rest-ubicacion-" + idx + "']");
+      
+      function updateRequired() {
+        var marcado = document.querySelector("input[name='rest-calif-" + idx + "']:checked");
+        if (marcado) {
+          if (inputNombre) inputNombre.required = true;
+          if (inputUbi) inputUbi.required = true;
+        } else {
+          if (inputNombre) {
+            inputNombre.required = false;
+            inputNombre.removeAttribute('required');
           }
+          if (inputUbi) {
+            inputUbi.required = false;
+            inputUbi.removeAttribute('required');
+          }
+        }
+      }
+      radios.forEach(function(radio) {
+        radio.addEventListener('change', updateRequired);
+        radio.addEventListener('click', function() {
+          setTimeout(updateRequired, 10);
         });
       });
+      
+      // Estado inicial
+      updateRequired();
     })(i);
   }
 }
 attachRestauranteValidation();
 
-// ── ARRANQUE SEGURO (funciona en iPad Safari, Chrome, Firefox) ──
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initFormulario);
 } else {
