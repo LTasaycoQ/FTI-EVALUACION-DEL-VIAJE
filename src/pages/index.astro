@@ -518,7 +518,6 @@ function initFormulario() {
 
 	var URL_API = "https://fiestatoursperu.com/TE-PERU/servicenew/evaluacion.php";
 
-	// Mapeo de calificaciones por idioma
 	function getCalificacionMap(lang) {
 		const maps = {
 			es: { "4": "Excelente", "3": "Bueno", "2": "Regular", "1": "Malo" },
@@ -718,7 +717,6 @@ function initFormulario() {
 		}
 	};
 
-	// Función para obtener el nombre del servicio traducido
 	function getServicioNombre(key, lang) {
 		const t = translations[lang] || translations.es;
 		return t.servicios && t.servicios[key] ? t.servicios[key] : key;
