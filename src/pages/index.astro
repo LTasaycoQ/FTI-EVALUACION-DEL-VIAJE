@@ -1,17 +1,11 @@
 ---
-
 import BaseLayout from "../Layout/BaseLayout.astro";
 import HeaderTable from "../components/headerTable.astro";
 import Languaje from "../components/languaje.astro";
-
-
-
 ---
 
 <BaseLayout>
 	<main>
-		
-
 		<section class="containerEvaluacionViaje">
 
 			<div class="imagen-empresa">
@@ -36,10 +30,10 @@ import Languaje from "../components/languaje.astro";
 
 			<div class="containerForm">
 				<form class="form-contacto">
-						<div class="container-datosUnico" style="display:none;">
-							<input type="hidden" name="codigo_idioma" id="codigo_idioma" value="es" />
-						</div>					
-						<div class="container-datos ">
+					<div class="container-datosUnico" style="display:none;">
+						<input type="hidden" name="codigo_idioma" id="codigo_idioma" value="es" />
+					</div>					
+					<div class="container-datos ">
 						<div class="container-datosUnico">
 							<i class="bi bi-person-fill"></i>
 							<input class="datosForm-personal" type="text" name="nombre" placeholder="Nombre completo" required />
@@ -51,7 +45,7 @@ import Languaje from "../components/languaje.astro";
 						</div>
 					</div>
 
-					
+					<!-- TRASLADOS -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="true">
 							<div class="seccion-titulo">
@@ -64,28 +58,28 @@ import Languaje from "../components/languaje.astro";
 								<HeaderTable />
 								<tbody>
 									<tr>
-										<td class="fila-label">Lima</td>
+										<td class="fila-label" data-i18n-servicio="lima">Lima</td>
 										<td><input type="radio" name="transfer-lima" value="1" /></td>
 										<td><input type="radio" name="transfer-lima" value="2" /></td>
 										<td><input type="radio" name="transfer-lima" value="3" /></td>
 										<td><input type="radio" name="transfer-lima" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Cusco</td>
+										<td class="fila-label" data-i18n-servicio="cusco">Cusco</td>
 										<td><input type="radio" name="transfer-cusco" value="1" /></td>
 										<td><input type="radio" name="transfer-cusco" value="2" /></td>
 										<td><input type="radio" name="transfer-cusco" value="3" /></td>
 										<td><input type="radio" name="transfer-cusco" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label">Valle Sagrado</td>
+										<td class="fila-label" data-i18n-servicio="valle_sagrado">Valle Sagrado</td>
 										<td><input type="radio" name="transfer-valle" value="1" /></td>
 										<td><input type="radio" name="transfer-valle" value="2" /></td>
 										<td><input type="radio" name="transfer-valle" value="3" /></td>
 										<td><input type="radio" name="transfer-valle" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label" data-i18n-seccion="transfer.servicio-tren">Servicio de Tren a Machu Picchu</td>
+										<td class="fila-label" data-i18n-servicio="tren_machu">Servicio de Tren a Machu Picchu</td>
 										<td><input type="radio" name="transfer-arequipa" value="1" /></td>
 										<td><input type="radio" name="transfer-arequipa" value="2" /></td>
 										<td><input type="radio" name="transfer-arequipa" value="3" /></td>
@@ -141,42 +135,42 @@ import Languaje from "../components/languaje.astro";
 								<HeaderTable />
 								<tbody>
 									<tr>
-										<td class="fila-label" data-i18n-seccion="tours.lima">Tour a la ciudad de Lima</td>
+										<td class="fila-label" data-i18n-servicio="tour_lima">Tour a la ciudad de Lima</td>
 										<td><input type="radio" name="guia-lima" value="1" /></td>
 										<td><input type="radio" name="guia-lima" value="2" /></td>
 										<td><input type="radio" name="guia-lima" value="3" /></td>
 										<td><input type="radio" name="guia-lima" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label" data-i18n-seccion="tours.lima-museo">Tour a la ciudad de Lima & museo</td>
+										<td class="fila-label" data-i18n-servicio="tour_lima_museo">Tour a la ciudad de Lima & museo</td>
 										<td><input type="radio" name="guia-lima-museo" value="1" /></td>
 										<td><input type="radio" name="guia-lima-museo" value="2" /></td>
 										<td><input type="radio" name="guia-lima-museo" value="3" /></td>
 										<td><input type="radio" name="guia-lima-museo" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label" data-i18n-seccion="tours.cusco">Tour a la ciudad de Cusco</td>
+										<td class="fila-label" data-i18n-servicio="tour_cusco">Tour a la ciudad de Cusco</td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="1" /></td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="2" /></td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="3" /></td>
 										<td><input type="radio" name="guia-ciudad-cusco" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label" data-i18n-seccion="tours.pisac">Pisac & Ollantaytambo</td>
+										<td class="fila-label" data-i18n-servicio="pisac">Pisac & Ollantaytambo</td>
 										<td><input type="radio" name="guia-pisac" value="1" /></td>
 										<td><input type="radio" name="guia-pisac" value="2" /></td>
 										<td><input type="radio" name="guia-pisac" value="3" /></td>
 										<td><input type="radio" name="guia-pisac" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label" data-i18n-seccion="tours.maras">Salineras de Maras</td>
+										<td class="fila-label" data-i18n-servicio="maras">Salineras de Maras</td>
 										<td><input type="radio" name="guia-piscinas-moray" value="1" /></td>
 										<td><input type="radio" name="guia-piscinas-moray" value="2" /></td>
 										<td><input type="radio" name="guia-piscinas-moray" value="3" /></td>
 										<td><input type="radio" name="guia-piscinas-moray" value="4" /></td>
 									</tr>
 									<tr>
-										<td class="fila-label" data-i18n-seccion="tours.machu">Excursión a Machu Picchu</td>
+										<td class="fila-label" data-i18n-servicio="machu_picchu">Excursión a Machu Picchu</td>
 										<td><input type="radio" name="guia-machu-picchu" value="1" /></td>
 										<td><input type="radio" name="guia-machu-picchu" value="2" /></td>
 										<td><input type="radio" name="guia-machu-picchu" value="3" /></td>
@@ -405,7 +399,6 @@ import Languaje from "../components/languaje.astro";
 						</div>
 					</div>
 
-
 					<!-- COMENTARIOS GENERALES -->
 					<div class="seccion seccion-comentarios">
 						<p class="comentarioText">Comentarios Generales y/o Sugerencias</p>
@@ -452,83 +445,80 @@ import Languaje from "../components/languaje.astro";
 			</div>
 
 			<div id="customModal" class="modal">
-			<div class="modal-content">
-				<p id="modalMessage">Mensaje</p>
-				<button id="modalBtn">Cerrar</button>
-			</div>
+				<div class="modal-content">
+					<p id="modalMessage">Mensaje</p>
+					<button id="modalBtn">Cerrar</button>
+				</div>
 			</div>
 
 		</section>
-
-		
-
 	</main>
 </BaseLayout>
 
 <script is:inline src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script is:inline>
 
-
 function showModal(message) {
-  var modal = document.getElementById("customModal");
-  var text = document.getElementById("modalMessage");
-  var btn = document.getElementById("modalBtn");
+	var modal = document.getElementById("customModal");
+	var text = document.getElementById("modalMessage");
+	var btn = document.getElementById("modalBtn");
 
-  if (!modal || !text || !btn) return;
+	if (!modal || !text || !btn) return;
 
-  text.textContent = message;
-  modal.classList.add("show");
+	text.textContent = message;
+	modal.classList.add("show");
 
-  btn.onclick = function() {
-    modal.classList.remove("show");
-  };
+	btn.onclick = function() {
+		modal.classList.remove("show");
+	};
 }
 
-
 function updateLanguageCode(lang) {
-  var codigoIdiomaInput = document.getElementById("codigo_idioma");
-  if (codigoIdiomaInput) {
-    codigoIdiomaInput.value = lang;
-  }
+	var codigoIdiomaInput = document.getElementById("codigo_idioma");
+	if (codigoIdiomaInput) {
+		codigoIdiomaInput.value = lang;
+	}
 }
 
 function initFormulario() {
-  makeRadiosDeselectable();
+	makeRadiosDeselectable();
 
-  if (window.__formInitialized) return;
+	if (window.__formInitialized) return;
 
-  var form = document.querySelector(".form-contacto");
-  var headers = document.querySelectorAll(".seccion-header");
+	var form = document.querySelector(".form-contacto");
+	var headers = document.querySelectorAll(".seccion-header");
 
-  if (!form || !headers.length) return;
+	if (!form || !headers.length) return;
 
-  window.__formInitialized = true;
+	window.__formInitialized = true;
 
-  headers.forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      var cuerpo = btn.nextElementSibling;
-      if (!cuerpo) return;
-      var abierto = cuerpo.classList.contains("abierto");
-      cuerpo.classList.toggle("abierto", !abierto);
-      btn.setAttribute("aria-expanded", String(!abierto));
-    });
-  });
+	headers.forEach(function(btn) {
+		btn.addEventListener("click", function() {
+			var cuerpo = btn.nextElementSibling;
+			if (!cuerpo) return;
+			var abierto = cuerpo.classList.contains("abierto");
+			cuerpo.classList.toggle("abierto", !abierto);
+			btn.setAttribute("aria-expanded", String(!abierto));
+		});
+	});
 
-  function attachRating() {
-    document.querySelectorAll(".rating-input").forEach(function(input) {
-      input.addEventListener("click", function() {
-        var val = parseInt(input.dataset.value);
-        var calInput = document.getElementById("calificacion");
-        if (calInput) calInput.value = val;
-        document.querySelectorAll(".rating-input").forEach(function(el) {
-          el.checked = parseInt(el.dataset.value) <= val;
-        });
-      });
-    });
-  }
-  attachRating();
+	function attachRating() {
+		document.querySelectorAll(".rating-input").forEach(function(input) {
+			input.addEventListener("click", function() {
+				var val = parseInt(input.dataset.value);
+				var calInput = document.getElementById("calificacion");
+				if (calInput) calInput.value = val;
+				document.querySelectorAll(".rating-input").forEach(function(el) {
+					el.checked = parseInt(el.dataset.value) <= val;
+				});
+			});
+		});
+	}
+	attachRating();
 
-  	var URL_API = "http://localhost:8080/service/evaluacion.php";
+	var URL_API = "http://localhost:8080/service/evaluacion.php";
+
+	// Mapeo de calificaciones por idioma
 	function getCalificacionMap(lang) {
 		const maps = {
 			es: { "4": "Excelente", "3": "Bueno", "2": "Regular", "1": "Malo" },
@@ -538,261 +528,448 @@ function initFormulario() {
 		return maps[lang] || maps.es;
 	}
 
-	function mapCalificacion(valor) {
+	function mapCalificacion(valor, lang) {
 		if (!valor) return null;
-		const lang = document.getElementById("codigo_idioma")?.value || "es";
-		const map = getCalificacionMap(lang);
+		const map = getCalificacionMap(lang || "es");
 		return map[valor] || null;
 	}
 
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    e.stopPropagation();
+	// Traducciones completas
+	var translations = {
+		es: {
+			titulo: "EVALUACIÓN DEL VIAJE",
+			tituloContainer: "Traslados",
+			comentario: "Comentario",
+			comentariosGenerales: "Comentarios Generales y/o Sugerencias",
+			rcorreo: "¿Podría darnos su correo electrónico para contactarlo en relación a su viaje a Perú? Esta información es confidencial.",
+			recomendar: "¿Qué tan probable es que recomiendes nuestro servicio?",
+			agradecimiento: "Nuestro más sincero agradecimiento por llenar nuestro formulario de evaluación",
+			enviar: "Enviar evaluación →",
+			placeholders: {
+				nombre: "Nombre completo",
+				email: "Correo electrónico",
+				ciudad: "Ingrese otra ciudad",
+				hotel: "Nombre del Hotel",
+				ubicacion: "Ubicación",
+				restaurante: "Nombre Restaurante",
+				experiencia: "Cuéntenos su experiencia..."
+			},
+			header: {
+				calificacion: "Calificación",
+				malo: "Malo",
+				regular: "Regular",
+				bueno: "Bueno",
+				excelente: "Excelente"
+			},
+			secciones: {
+				titulos: {
+					transfer: "Traslados",
+					tours: "Tours y guías turísticos",
+					hoteles: "Hoteles",
+					restaurantes: "Restaurantes"
+				},
+				transfer: {
+					"servicio-tren": "Servicio de Tren a Machu Picchu"
+				},
+				tours: {
+					lima: "Tour a la ciudad de Lima",
+					"lima-museo": "Tour a la ciudad de Lima & museo",
+					cusco: "Tour a la ciudad de Cusco",
+					pisac: "Pisac & Ollantaytambo",
+					maras: "Salineras de Maras",
+					machu: "Excursión a Machu Picchu"
+				},
+				intro: {
+					texto: "Estimado Visitante: Lo invitamos a que nos dé su opinión sobre nuestros servicios. Por favor, ayúdenos a identificar a nuestros colaboradores que vienen desarrollando una labor de excelencia para premiarlos y/o detectar en qué áreas debemos mejorar. Buscamos perfeccionar el arte de 'atender al turista'."
+				}
+			},
+			servicios: {
+				lima: "Lima",
+				cusco: "Cusco",
+				valle_sagrado: "Valle Sagrado",
+				tren_machu: "Servicio de Tren a Machu Picchu",
+				tour_lima: "Recorrido por la ciudad de Lima",
+				tour_lima_museo: "Recorrido por la ciudad de Lima y museo",
+				tour_cusco: "Tour por la ciudad de Cusco",
+				pisac: "Pisac y Ollantaytambo",
+				maras: "Piscinas salinas de Moray y Maras",
+				machu_picchu: "Excursión a Machu Picchu"
+			}
+		},
+		en: {
+			titulo: "TRIP EVALUATION",
+			tituloContainer: "Transfers",
+			comentario: "Comment",
+			comentariosGenerales: "General Comments and/or Suggestions",
+			rcorreo: "Could you please provide your email address so we can contact you regarding your trip to Peru? This information is confidential.",
+			recomendar: "How likely are you to recommend our service?",
+			agradecimiento: "Thank you sincerely for filling out our evaluation form",
+			enviar: "Send evaluation →",
+			placeholders: {
+				nombre: "Full name",
+				email: "Email address",
+				ciudad: "Enter another city",
+				hotel: "Hotel Name",
+				ubicacion: "Location",
+				restaurante: "Restaurant Name",
+				experiencia: "Tell us about your experience..."
+			},
+			header: {
+				calificacion: "Rating",
+				malo: "Poor",
+				regular: "Fair",
+				bueno: "Good",
+				excelente: "Excellent"
+			},
+			secciones: {
+				titulos: {
+					transfer: "Transfers",
+					tours: "Tours & tour guides",
+					hoteles: "Hotels",
+					restaurantes: "Restaurants"
+				},
+				transfer: {
+					"servicio-tren": "Train Service to Machu Picchu"
+				},
+				tours: {
+					lima: "City tour of Lima",
+					"lima-museo": "City tour of Lima & museum",
+					cusco: "City tour of Cusco",
+					pisac: "Pisac & Ollantaytambo",
+					maras: "Maras Salt Mines",
+					machu: "Excursion to Machu Picchu"
+				},
+				intro: {
+					texto: "Dear Travelers: We will sincerely appreciate your comments on our services; they will help us to reward the outstanding performances and to identify our weaknesses so we can work on it and turn them into strengths."
+				}
+			},
+			servicios: {
+				lima: "Lima",
+				cusco: "Cusco",
+				valle_sagrado: "Sacred Valley",
+				tren_machu: "Train Service to Machu Picchu",
+				tour_lima: "Lima City Tour",
+				tour_lima_museo: "Lima City Tour & Museum",
+				tour_cusco: "Cusco City Tour",
+				pisac: "Pisac & Ollantaytambo",
+				maras: "Maras Salt Mines",
+				machu_picchu: "Machu Picchu Excursion"
+			}
+		},
+		pr: {
+			titulo: "FORMULÁRIO DE AVALIAÇÃO",
+			tituloContainer: "Transferências",
+			comentario: "Comentário",
+			comentariosGenerales: "Comentários Gerais e/ou Sugestões",
+			rcorreo: "Poderia nos fornecer seu endereço de e-mail para que possamos entrar em contato com você a respeito de sua viagem ao Peru? Esta informação é confidencial.",
+			recomendar: "Qual a probabilidade de você recomendar nosso serviço?",
+			agradecimiento: "Muito obrigado por preencher nosso formulário de avaliação",
+			enviar: "Enviar avaliação →",
+			placeholders: {
+				nombre: "Nome completo",
+				email: "Endereço de e-mail",
+				ciudad: "Digite outra cidade",
+				hotel: "Nome do Hotel",
+				ubicacion: "Localização",
+				restaurante: "Nome do Restaurante",
+				experiencia: "Conte-nos sobre sua experiência..."
+			},
+			header: {
+				calificacion: "Avaliação",
+				malo: "Ruim",
+				regular: "Regular",
+				bueno: "Bom",
+				excelente: "Excelente"
+			},
+			secciones: {
+				titulos: {
+					transfer: "Transferências",
+					tours: "Tours e guias turísticos",
+					hoteles: "Hotéis",
+					restaurantes: "Restaurantes"
+				},
+				transfer: {
+					"servicio-tren": "Serviço de Trem para Machu Picchu"
+				},
+				tours: {
+					lima: "Tour pela cidade de Lima",
+					"lima-museo": "Tour pela cidade de Lima & museu",
+					cusco: "Tour pela cidade de Cusco",
+					pisac: "Pisac & Ollantaytambo",
+					maras: "Salinas de Maras",
+					machu: "Excursão a Machu Picchu"
+				},
+				intro: {
+					texto: "Caro visitante: Convidamos a você para dar sua opinião sobre os nossos serviços. Por favor, ajude-nos a identificar aos nossos colaboradores que estão desenvolvendo um trabalho de excelência para premiá-los e para detectar as áreas que precisamos melhorar. Buscamos aperfeiçoar a arte de 'servir ao turista'."
+				}
+			},
+			servicios: {
+				lima: "Lima",
+				cusco: "Cusco",
+				valle_sagrado: "Vale Sagrado",
+				tren_machu: "Serviço de Trem para Machu Picchu",
+				tour_lima: "Tour pela cidade de Lima",
+				tour_lima_museo: "Tour pela cidade de Lima e museu",
+				tour_cusco: "Tour pela cidade de Cusco",
+				pisac: "Pisac e Ollantaytambo",
+				maras: "Salinas de Maras",
+				machu_picchu: "Excursão a Machu Picchu"
+			}
+		}
+	};
 
-    var submitBtn = form.querySelector("button[type='submit']");
-    if (submitBtn) { submitBtn.disabled = true; submitBtn.innerText = "Enviando..."; }
-
-    var formData = new FormData(form);
-
-    var restaurantes = [];
-    for (var i = 1; i <= 4; i++) {
-      var rNombre = formData.get("rest-nombre-" + i);
-      var rUbi    = formData.get("rest-ubicacion-" + i);
-      var rCal    = formData.get("rest-calif-" + i);
-      if (rNombre || rUbi || rCal) {
-        restaurantes.push({
-          restaurante_name:         rNombre || "N/A",
-          restaurante_ubicacion:    rUbi    || "N/A",
-          restaurante_calificacion: mapCalificacion(rCal) || "No evaluado",
-        });
-      }
-    }
-
-    var data = {
-	  codigo_idioma:           formData.get("codigo_idioma"),
-	  nombre:                  formData.get("nombre"),
-      email:                   formData.get("email"),
-      fecha:                   formData.get("fecha"),
-      comentarioHotelTransfer: formData.get("comentarioHotelTransfer"),
-      comentarioHotel:         formData.get("comentarioHotel"),
-      comentarioRestaurante:   formData.get("comentarioRestaurante"),
-      comentariosToursGuia:    formData.get("comentarioToursGuia"),
-      calificacion:            parseInt(document.getElementById("calificacion").value) || 0,
-
-      hotelTransfer: [
-        { hotelTransfer_name: "Lima",          hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-lima"))     },
-        { hotelTransfer_name: "Cusco",         hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-cusco"))    },
-        { hotelTransfer_name: "Valle Sagrado", hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-valle"))    },
-        { hotelTransfer_name: "Servicio de Tren a Machu Picchu", hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-arequipa")) },
-        { hotelTransfer_name: formData.get("hotel-transfer-nombre-1"), hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-1")) },
-        { hotelTransfer_name: formData.get("hotel-transfer-nombre-2"), hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-2")) },
-        { hotelTransfer_name: formData.get("hotel-transfer-nombre-3"), hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-3")) },
-        { hotelTransfer_name: formData.get("hotel-transfer-nombre-4"), hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-4")) },
-      ].filter(function(item) { return item.hotelTransfer_calificacion; }),
-
-      tours: [
-        { tours_name: "Recorrido por la ciudad de Lima",         tours_calificacion: mapCalificacion(formData.get("guia-lima"))           },
-        { tours_name: "Recorrido por la ciudad de Lima y museo", tours_calificacion: mapCalificacion(formData.get("guia-lima-museo"))      },
-        { tours_name: "Tour por la ciudad de Cusco",             tours_calificacion: mapCalificacion(formData.get("guia-ciudad-cusco"))   },
-        { tours_name: "Pisac y Ollantaytambo",                   tours_calificacion: mapCalificacion(formData.get("guia-pisac"))          },
-        { tours_name: "Piscinas salinas de Moray y Maras",       tours_calificacion: mapCalificacion(formData.get("guia-piscinas-moray"))},
-        { tours_name: "Excursión a Machu Picchu",                tours_calificacion: mapCalificacion(formData.get("guia-machu-picchu"))   },
-        { tours_name: formData.get("tours-nombre-1"), tours_calificacion: mapCalificacion(formData.get("tours-guia-1")) },
-        { tours_name: formData.get("tours-nombre-2"), tours_calificacion: mapCalificacion(formData.get("tours-guia-2")) },
-        { tours_name: formData.get("tours-nombre-3"), tours_calificacion: mapCalificacion(formData.get("tours-guia-3")) },
-        { tours_name: formData.get("tours-nombre-4"), tours_calificacion: mapCalificacion(formData.get("tours-guia-4")) },
-      ].filter(function(item) { return item.tours_calificacion; }),
-
-      hotel: [
-        { hotel_ubicacion: "Lima",          hotel_name: formData.get("hotel-lima"),           hotel_calificacion: mapCalificacion(formData.get("hotel-lima-calificacion"))           },
-        { hotel_ubicacion: "Cusco",         hotel_name: formData.get("hotel-cusco"),          hotel_calificacion: mapCalificacion(formData.get("hotel-cusco-calificacion"))          },
-        { hotel_ubicacion: "Machu Picchu",  hotel_name: formData.get("hotel-machu-picchu"),   hotel_calificacion: mapCalificacion(formData.get("hotel-machu-picchu-calificacion"))   },
-        { hotel_ubicacion: "Valle Sagrado", hotel_name: formData.get("hotel-valle-sagrado"),  hotel_calificacion: mapCalificacion(formData.get("hotel-valle-sagrado-calificacion"))  },
-        { hotel_ubicacion: formData.get("hotel-ubicacion-1"), hotel_name: formData.get("hotel-nombre-1"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-1")) },
-        { hotel_ubicacion: formData.get("hotel-ubicacion-2"), hotel_name: formData.get("hotel-nombre-2"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-2")) },
-        { hotel_ubicacion: formData.get("hotel-ubicacion-3"), hotel_name: formData.get("hotel-nombre-3"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-3")) },
-        { hotel_ubicacion: formData.get("hotel-ubicacion-4"), hotel_name: formData.get("hotel-nombre-4"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-4")) },
-      ].filter(function(item) { return item.hotel_calificacion; }),
-	  
-      restaurantes: restaurantes,
-      comentario:   formData.get("comentarios") || "",
-    };
-
-    fetch(URL_API, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-    .then(function(response) {
-      if (response.ok) {
-       showModal("Evaluación enviada con éxito.");
-        form.reset();
-        var calInput = document.getElementById("calificacion");
-        if (calInput) calInput.value = "0";
-        document.querySelectorAll(".rating-input").forEach(function(el) { el.checked = false; });
-      } else {
-        showModal("Error al enviar. Inténtalo de nuevo.");
+	// Función para obtener el nombre del servicio traducido
+	function getServicioNombre(key, lang) {
+		const t = translations[lang] || translations.es;
+		return t.servicios && t.servicios[key] ? t.servicios[key] : key;
 	}
-    })
-    .catch(function(error) {
-      console.error("Error fetch:", error);
-     showModal("Error de conexión con el servidor.");
-    })
-    .finally(function() {
-      if (submitBtn) { submitBtn.innerText = "Enviar evaluación →"; submitBtn.disabled = false; }
-    });
-  });
 
-  var translations = {
-    es: { titulo:"EVALUACIÓN DEL VIAJE", tituloContainer: "Traslados",comentario:"Comentario",comentariosGenerales:"Comentarios Generales y/o Sugerencias",rcorreo:"¿Podría darnos su correo electrónico para contactarlo en relación a su viaje a Perú? Esta información es confidencial.",recomendar:"¿Qué tan probable es que recomiendes nuestro servicio?",agradecimiento:"Nuestro más sincero agradecimiento por llenar nuestro formulario de evaluación",enviar:"Enviar evaluación →",placeholders:{nombre:"Nombre completo",email:"Correo electrónico",ciudad:"Ingrese otra ciudad",hotel:"Nombre del Hotel",ubicacion:"Ubicación",restaurante:"Nombre Restaurante",experiencia:"Cuéntenos su experiencia..."},header:{calificacion:"Calificación",malo:"Malo",regular:"Regular",bueno:"Bueno",excelente:"Excelente"},secciones:{titulos:{transfer:"Traslados",tours:"Tours y guías turísticos",hoteles:"Hoteles",restaurantes:"Restaurantes"},transfer:{"servicio-tren":"Servicio de Tren a Machu Picchu"},tours:{lima:"Tour a la ciudad de Lima","lima-museo":"Tour a la ciudad de Lima & museo",cusco:"Tour a la ciudad de Cusco",pisac:"Pisac & Ollantaytambo",maras:"Salineras de Maras",machu:"Excursión a Machu Picchu"},intro:{texto:"Estimado Visitante: Lo invitamos a que nos dé su opinión sobre nuestros servicios. Por favor, ayúdenos a identificar a nuestros colaboradores que vienen desarrollando una labor de excelencia para premiarlos y/o detectar en qué áreas debemos mejorar. Buscamos perfeccionar el arte de “atender al turista”."}}},
-    en: { titulo:"TRIP EVALUATION", tituloContainer: "Transfers",comentario:"Comment",comentariosGenerales:"General Comments and/or Suggestions",rcorreo:"Could you please provide your email address so we can contact you regarding your trip to Peru? This information is confidential.",recomendar:"How likely are you to recommend our service?",agradecimiento:"Thank you sincerely for filling out our evaluation form",enviar:"Send evaluation →",placeholders:{nombre:"Full name",email:"Email address",ciudad:"Enter another city",hotel:"Hotel Name",ubicacion:"Location",restaurante:"Restaurant Name",experiencia:"Tell us about your experience..."},header:{calificacion:"Rating",malo:"Poor",regular:"Fair",bueno:"Good",excelente:"Excellent"},secciones:{titulos:{transfer:"Transfers",tours:"Tours & tour guides",hoteles:"Hotels",restaurantes:"Restaurants"},transfer:{"servicio-tren":"Train Service to Machu Picchu"},tours:{lima:"City tour of Lima","lima-museo":"City tour of Lima & museum",cusco:"City tour of Cusco",pisac:"Pisac & Ollantaytambo",maras:"Maras Salt Mines",machu:"Excursion to Machu Picchu"},intro:{texto:"Dear Travelers: We will sincerely appreciate your comments on our services; they will help us to reward the outstanding performances and to identify our weaknesses so we can work on it and turn them into strengths."}}},
-    pr: { titulo:"FORMULÁRIO DE AVALIAÇÃO",tituloContainer: "Tralados",comentario:"Comentário",comentariosGenerales:"Comentários Gerais e/ou Sugestões",rcorreo:"Poderia nos fornecer seu endereço de e-mail para que possamos entrar em contato com você a respeito de sua viagem ao Peru? Esta informação é confidencial.",recomendar:"Qual a probabilidade de você recomendar nosso serviço?",agradecimiento:"Muito obrigado por preencher nosso formulário de avaliação",enviar:"Enviar avaliação →",placeholders:{nombre:"Nome completo",email:"Endereço de e-mail",ciudad:"Digite outra cidade",hotel:"Nome do Hotel",ubicacion:"Localização",restaurante:"Nome do Restaurante",experiencia:"Conte-nos sobre sua experiência..."},header:{calificacion:"Avaliação",malo:"Ruim",regular:"Regular",bueno:"Bom",excelente:"Excelente"},secciones:{titulos:{transfer:"Traslados",tours:"Tours e guias turísticos",hoteles:"Hotéis",restaurantes:"Restaurantes"},transfer:{"servicio-tren":"Serviço de Trem para Machu Picchu"},tours:{lima:"Tour pela cidade de Lima","lima-museo":"Tour pela cidade de Lima & museu",cusco:"Tour pela cidade de Cusco",pisac:"Pisac & Ollantaytambo",maras:"Salinas de Maras",machu:"Excursão a Machu Picchu"},intro:{texto:"Caro visitante:Convidamos a você para dar sua opinião sobre os nossos serviços. Por favor, ajude-nos a identificar aos nossos colaboradores que estão desenvolvendo um trabalho de excelência para premiá-los e para detectar as áreas que precisamos melhorar. Buscamos aperfeiçoar a arte de 'servir ao turista'."}}},
-  };
+	form.addEventListener("submit", function(e) {
+		e.preventDefault();
+		e.stopPropagation();
 
+		var submitBtn = form.querySelector("button[type='submit']");
+		if (submitBtn) { submitBtn.disabled = true; submitBtn.innerText = "Enviando..."; }
 
+		var formData = new FormData(form);
+		var lang = formData.get("codigo_idioma") || "es";
 
-  function applyLang(lang) {
-    var t = translations[lang] || translations.es;
-    var p = t.placeholders;
+		var restaurantes = [];
+		for (var i = 1; i <= 4; i++) {
+			var rNombre = formData.get("rest-nombre-" + i);
+			var rUbi = formData.get("rest-ubicacion-" + i);
+			var rCal = formData.get("rest-calif-" + i);
+			if (rNombre || rUbi || rCal) {
+				restaurantes.push({
+					restaurante_name: rNombre || "N/A",
+					restaurante_ubicacion: rUbi || "N/A",
+					restaurante_calificacion: mapCalificacion(rCal, lang) || "No evaluado",
+				});
+			}
+		}
 
-    var h1 = document.querySelector(".hero h1");
-    if (h1) h1.textContent = t.titulo;
+		var data = {
+			codigo_idioma: lang,
+			nombre: formData.get("nombre"),
+			email: formData.get("email"),
+			fecha: formData.get("fecha"),
+			comentarioHotelTransfer: formData.get("comentarioHotelTransfer"),
+			comentarioHotel: formData.get("comentarioHotel"),
+			comentarioRestaurante: formData.get("comentarioRestaurante"),
+			comentariosToursGuia: formData.get("comentarioToursGuia"),
+			calificacion: parseInt(document.getElementById("calificacion").value) || 0,
 
-    var btnEnviar = document.querySelector(".btn-enviar");
-    if (btnEnviar) btnEnviar.textContent = t.enviar;
+			hotelTransfer: [
+				{ hotelTransfer_name: getServicioNombre("lima", lang), hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-lima"), lang) },
+				{ hotelTransfer_name: getServicioNombre("cusco", lang), hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-cusco"), lang) },
+				{ hotelTransfer_name: getServicioNombre("valle_sagrado", lang), hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-valle"), lang) },
+				{ hotelTransfer_name: getServicioNombre("tren_machu", lang), hotelTransfer_calificacion: mapCalificacion(formData.get("transfer-arequipa"), lang) },
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-1"), hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-1"), lang) },
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-2"), hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-2"), lang) },
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-3"), hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-3"), lang) },
+				{ hotelTransfer_name: formData.get("hotel-transfer-nombre-4"), hotelTransfer_calificacion: mapCalificacion(formData.get("hotel-transfer-calificacion-4"), lang) },
+			].filter(function(item) { return item.hotelTransfer_calificacion; }),
 
-    document.querySelectorAll(".comentarioText").forEach(function(el) {
-      el.textContent = el.closest(".seccion-comentarios") ? t.comentariosGenerales : t.comentario;
-    });
+			tours: [
+				{ tours_name: getServicioNombre("tour_lima", lang), tours_calificacion: mapCalificacion(formData.get("guia-lima"), lang) },
+				{ tours_name: getServicioNombre("tour_lima_museo", lang), tours_calificacion: mapCalificacion(formData.get("guia-lima-museo"), lang) },
+				{ tours_name: getServicioNombre("tour_cusco", lang), tours_calificacion: mapCalificacion(formData.get("guia-ciudad-cusco"), lang) },
+				{ tours_name: getServicioNombre("pisac", lang), tours_calificacion: mapCalificacion(formData.get("guia-pisac"), lang) },
+				{ tours_name: getServicioNombre("maras", lang), tours_calificacion: mapCalificacion(formData.get("guia-piscinas-moray"), lang) },
+				{ tours_name: getServicioNombre("machu_picchu", lang), tours_calificacion: mapCalificacion(formData.get("guia-machu-picchu"), lang) },
+				{ tours_name: formData.get("tours-nombre-1"), tours_calificacion: mapCalificacion(formData.get("tours-guia-1"), lang) },
+				{ tours_name: formData.get("tours-nombre-2"), tours_calificacion: mapCalificacion(formData.get("tours-guia-2"), lang) },
+				{ tours_name: formData.get("tours-nombre-3"), tours_calificacion: mapCalificacion(formData.get("tours-guia-3"), lang) },
+				{ tours_name: formData.get("tours-nombre-4"), tours_calificacion: mapCalificacion(formData.get("tours-guia-4"), lang) },
+			].filter(function(item) { return item.tours_calificacion; }),
 
-    var recomendarEl = document.querySelector(".max-w-xl p");
-    if (recomendarEl) recomendarEl.textContent = t.recomendar;
+			hotel: [
+				{ hotel_ubicacion: getServicioNombre("lima", lang), hotel_name: formData.get("hotel-lima"), hotel_calificacion: mapCalificacion(formData.get("hotel-lima-calificacion"), lang) },
+				{ hotel_ubicacion: getServicioNombre("cusco", lang), hotel_name: formData.get("hotel-cusco"), hotel_calificacion: mapCalificacion(formData.get("hotel-cusco-calificacion"), lang) },
+				{ hotel_ubicacion: getServicioNombre("machu_picchu", lang), hotel_name: formData.get("hotel-machu-picchu"), hotel_calificacion: mapCalificacion(formData.get("hotel-machu-picchu-calificacion"), lang) },
+				{ hotel_ubicacion: getServicioNombre("valle_sagrado", lang), hotel_name: formData.get("hotel-valle-sagrado"), hotel_calificacion: mapCalificacion(formData.get("hotel-valle-sagrado-calificacion"), lang) },
+				{ hotel_ubicacion: formData.get("hotel-ubicacion-1"), hotel_name: formData.get("hotel-nombre-1"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-1"), lang) },
+				{ hotel_ubicacion: formData.get("hotel-ubicacion-2"), hotel_name: formData.get("hotel-nombre-2"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-2"), lang) },
+				{ hotel_ubicacion: formData.get("hotel-ubicacion-3"), hotel_name: formData.get("hotel-nombre-3"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-3"), lang) },
+				{ hotel_ubicacion: formData.get("hotel-ubicacion-4"), hotel_name: formData.get("hotel-nombre-4"), hotel_calificacion: mapCalificacion(formData.get("hotel-calificacion-4"), lang) },
+			].filter(function(item) { return item.hotel_calificacion; }),
 
-	var recomendarEl = document.querySelector(".max-w-xl p");
-    if (recomendarEl) recomendarEl.textContent = t.recomendar;
+			restaurantes: restaurantes,
+			comentario: formData.get("comentarios") || "",
+		};
 
+		fetch(URL_API, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(data),
+		})
+		.then(function(response) {
+			if (response.ok) {
+				showModal("Evaluación enviada con éxito.");
+				form.reset();
+				var calInput = document.getElementById("calificacion");
+				if (calInput) calInput.value = "0";
+				document.querySelectorAll(".rating-input").forEach(function(el) { el.checked = false; });
+			} else {
+				showModal("Error al enviar. Inténtalo de nuevo.");
+			}
+		})
+		.catch(function(error) {
+			console.error("Error fetch:", error);
+			showModal("Error de conexión con el servidor.");
+		})
+		.finally(function() {
+			if (submitBtn) { submitBtn.innerText = "Enviar evaluación →"; submitBtn.disabled = false; }
+		});
+	});
 
+	function applyLang(lang) {
+		var t = translations[lang] || translations.es;
+		var p = t.placeholders;
 
-    var correoEl = document.querySelector(".correoText");
-    if (correoEl) correoEl.textContent = t.rcorreo;
+		var h1 = document.querySelector(".hero h1");
+		if (h1) h1.textContent = t.titulo;
 
-    var footerNote = document.querySelector(".footer-note");
-    if (footerNote) footerNote.textContent = t.agradecimiento;
+		var btnEnviar = document.querySelector(".btn-enviar");
+		if (btnEnviar) btnEnviar.textContent = t.enviar;
 
-    document.querySelectorAll("[data-i18n]").forEach(function(el) {
-      var key = el.getAttribute("data-i18n");
-      if (t.header[key]) el.textContent = t.header[key];
-    });
+		document.querySelectorAll(".comentarioText").forEach(function(el) {
+			el.textContent = el.closest(".seccion-comentarios") ? t.comentariosGenerales : t.comentario;
+		});
 
-    document.querySelectorAll("[data-i18n-seccion]").forEach(function(el) {
-      var key   = el.getAttribute("data-i18n-seccion");
-      var parts = key.split(".");
-      var texto = t.secciones && t.secciones[parts[0]] && t.secciones[parts[0]][parts[1]];
-      if (texto) el.textContent = texto;
-    });
+		var recomendarEl = document.querySelector(".max-w-xl p");
+		if (recomendarEl) recomendarEl.textContent = t.recomendar;
 
-    var set = function(selector, value) {
-      document.querySelectorAll(selector).forEach(function(el) { el.placeholder = value; });
-    };
-    set("input[name='nombre']",                  p.nombre);
-    set("input[name='email']",                   p.email);
-    set(".input-hotel-transfer",                 p.ciudad);
-    set(".input-restaurante[name*='hotel']",     p.hotel);
-    set(".input-restaurante[name*='ubicacion']", p.ubicacion);
-    set(".input-restaurante[name*='nombre']",    p.hotel);
-    set("input[name*='rest-nombre']",            p.restaurante);
-    set("input[name*='rest-ubicacion']",         p.ubicacion);
-    set("textarea[name='comentarios']",          p.experiencia);
-  }
+		var correoEl = document.querySelector(".correoText");
+		if (correoEl) correoEl.textContent = t.rcorreo;
 
-  window.addEventListener("changeLang", function(e) { applyLang(e.detail);   updateLanguageCode(e.detail);});
+		var footerNote = document.querySelector(".footer-note");
+		if (footerNote) footerNote.textContent = t.agradecimiento;
 
-  var savedLang = localStorage.getItem("lang") || "es";
-  updateLanguageCode(initialLang);
-  setTimeout(function() { applyLang(savedLang); }, 100);
+		document.querySelectorAll("[data-i18n]").forEach(function(el) {
+			var key = el.getAttribute("data-i18n");
+			if (t.header[key]) el.textContent = t.header[key];
+		});
+
+		document.querySelectorAll("[data-i18n-seccion]").forEach(function(el) {
+			var key = el.getAttribute("data-i18n-seccion");
+			var parts = key.split(".");
+			var texto = t.secciones && t.secciones[parts[0]] && t.secciones[parts[0]][parts[1]];
+			if (texto) el.textContent = texto;
+		});
+
+		// Traducir nombres de servicios
+		document.querySelectorAll("[data-i18n-servicio]").forEach(function(el) {
+			var key = el.getAttribute("data-i18n-servicio");
+			var texto = t.servicios && t.servicios[key] ? t.servicios[key] : key;
+			el.textContent = texto;
+		});
+
+		var set = function(selector, value) {
+			document.querySelectorAll(selector).forEach(function(el) { el.placeholder = value; });
+		};
+		set("input[name='nombre']", p.nombre);
+		set("input[name='email']", p.email);
+		set(".input-hotel-transfer", p.ciudad);
+		set(".input-restaurante[name*='hotel']", p.hotel);
+		set(".input-restaurante[name*='ubicacion']", p.ubicacion);
+		set(".input-restaurante[name*='nombre']", p.hotel);
+		set("input[name*='rest-nombre']", p.restaurante);
+		set("input[name*='rest-ubicacion']", p.ubicacion);
+		set("textarea[name='comentarios']", p.experiencia);
+	}
+
+	window.addEventListener("changeLang", function(e) {
+		applyLang(e.detail);
+		updateLanguageCode(e.detail);
+	});
+
+	var savedLang = localStorage.getItem("lang") || "es";
+	updateLanguageCode(savedLang);
+	setTimeout(function() { applyLang(savedLang); }, 100);
 }
 
 function makeRadiosDeselectable() {
-  const radios = document.querySelectorAll('input[type="radio"]');
-  
-  radios.forEach(radio => {
-    let wasChecked = false;
-    
-    radio.addEventListener('click', function(e) {
-      if (wasChecked) {
-        this.checked = false;
-        wasChecked = false;
-        
-        const changeEvent = new Event('change', { bubbles: true });
-        this.dispatchEvent(changeEvent);
-        
-        if (this.classList.contains('rating-input')) {
-          const calInput = document.getElementById("calificacion");
-          if (calInput) calInput.value = "0";
-        }
-      } else {
-        wasChecked = true;
-      }
-    });
-    
-    radio.addEventListener('change', function() {
-      if (!this.checked) {
-        wasChecked = false;
-      }
-    });
-  });
+	const radios = document.querySelectorAll('input[type="radio"]');
+
+	radios.forEach(radio => {
+		let wasChecked = false;
+
+		radio.addEventListener('click', function(e) {
+			if (wasChecked) {
+				this.checked = false;
+				wasChecked = false;
+
+				const changeEvent = new Event('change', { bubbles: true });
+				this.dispatchEvent(changeEvent);
+
+				if (this.classList.contains('rating-input')) {
+					const calInput = document.getElementById("calificacion");
+					if (calInput) calInput.value = "0";
+				}
+			} else {
+				wasChecked = true;
+			}
+		});
+
+		radio.addEventListener('change', function() {
+			if (!this.checked) {
+				wasChecked = false;
+			}
+		});
+	});
 }
 
+function attachRestauranteValidation() {
+	for (var i = 1; i <= 4; i++) {
+		(function(idx) {
+			var radios = document.querySelectorAll("input[name='rest-calif-" + idx + "']");
+			var inputNombre = document.querySelector("input[name='rest-nombre-" + idx + "']");
+			var inputUbi = document.querySelector("input[name='rest-ubicacion-" + idx + "']");
 
+			function updateRequired() {
+				var marcado = document.querySelector("input[name='rest-calif-" + idx + "']:checked");
+				if (marcado) {
+					if (inputNombre) inputNombre.required = true;
+					if (inputUbi) inputUbi.required = true;
+				} else {
+					if (inputNombre) {
+						inputNombre.required = false;
+						inputNombre.removeAttribute('required');
+					}
+					if (inputUbi) {
+						inputUbi.required = false;
+						inputUbi.removeAttribute('required');
+					}
+				}
+			}
+			radios.forEach(function(radio) {
+				radio.addEventListener('change', updateRequired);
+				radio.addEventListener('click', function() {
+					setTimeout(updateRequired, 10);
+				});
+			});
+
+			updateRequired();
+		})(i);
+	}
+}
 
 var initialLang = localStorage.getItem("lang") || "es";
 updateLanguageCode(initialLang);
-function attachRestauranteValidation() {
-  for (var i = 1; i <= 4; i++) {
-    (function(idx) {
-      var radios = document.querySelectorAll("input[name='rest-calif-" + idx + "']");
-      var inputNombre = document.querySelector("input[name='rest-nombre-" + idx + "']");
-      var inputUbi = document.querySelector("input[name='rest-ubicacion-" + idx + "']");
-      
-      function updateRequired() {
-        var marcado = document.querySelector("input[name='rest-calif-" + idx + "']:checked");
-        if (marcado) {
-          if (inputNombre) inputNombre.required = true;
-          if (inputUbi) inputUbi.required = true;
-        } else {
-          if (inputNombre) {
-            inputNombre.required = false;
-            inputNombre.removeAttribute('required');
-          }
-          if (inputUbi) {
-            inputUbi.required = false;
-            inputUbi.removeAttribute('required');
-          }
-        }
-      }
-      radios.forEach(function(radio) {
-        radio.addEventListener('change', updateRequired);
-        radio.addEventListener('click', function() {
-          setTimeout(updateRequired, 10);
-        });
-      });
-      
-      // Estado inicial
-      updateRequired();
-    })(i);
-  }
-}
 attachRestauranteValidation();
 
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initFormulario);
+	document.addEventListener("DOMContentLoaded", initFormulario);
 } else {
-  initFormulario();
+	initFormulario();
 }
+
 document.addEventListener("astro:page-load", function() {
-  window.__formInitialized = false;
-  initFormulario();
+	window.__formInitialized = false;
+	initFormulario();
 });
+
 </script>
 
 <style>
@@ -826,63 +1003,60 @@ document.addEventListener("astro:page-load", function() {
 	}
 
 	.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.5);
+		display: none;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+	}
 
-.modal.show {
-  display: flex;
-}
+	.modal.show {
+		display: flex;
+	}
 
-.modal-content {
-  background: white;
-  padding: 20px 30px;
-  border-radius: 12px;
-  text-align: center;
-  max-width: 300px;
-  width: 80%;
-  animation: fadeIn 0.3s ease;
-}
+	.modal-content {
+		background: white;
+		padding: 20px 30px;
+		border-radius: 12px;
+		text-align: center;
+		max-width: 300px;
+		width: 80%;
+		animation: fadeIn 0.3s ease;
+	}
 
-.modal-content p {
-  margin-bottom: 15px;
-  font-weight: 500;
-}
+	.modal-content p {
+		margin-bottom: 15px;
+		font-weight: 500;
+	}
 
-.modal-content button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
-  background: #28652b;
-  color: white;
-  cursor: pointer;
-}
+	.modal-content button {
+		padding: 8px 16px;
+		border: none;
+		border-radius: 8px;
+		background: #28652b;
+		color: white;
+		cursor: pointer;
+	}
 
-input[type="date"] {
-  appearance: none;
-  -webkit-appearance: none; /* clave para Safari */
-  height: 35px;
+	input[type="date"] {
+		appearance: none;
+		-webkit-appearance: none;
+		height: 35px;
+		padding: 10px;
+		border-radius: 10px;
+		border: 1px solid #ccc;
+		font-size: 16px;
+		background-color: white;
+		color: #333;
+	}
 
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  background-color: white;
-  color: #333;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
-}
+	@keyframes fadeIn {
+		from { opacity: 0; transform: scale(0.9); }
+		to { opacity: 1; transform: scale(1); }
+	}
 </style>
-
-
