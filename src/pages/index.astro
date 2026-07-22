@@ -920,44 +920,8 @@ function makeRadiosDeselectable() {
 	});
 }
 
-function attachRestauranteValidation() {
-	for (var i = 1; i <= 4; i++) {
-		(function(idx) {
-			var radios = document.querySelectorAll("input[name='rest-calif-" + idx + "']");
-			var inputNombre = document.querySelector("input[name='rest-nombre-" + idx + "']");
-			var inputUbi = document.querySelector("input[name='rest-ubicacion-" + idx + "']");
-
-			function updateRequired() {
-				var marcado = document.querySelector("input[name='rest-calif-" + idx + "']:checked");
-				if (marcado) {
-					if (inputNombre) inputNombre.required = true;
-					if (inputUbi) inputUbi.required = true;
-				} else {
-					if (inputNombre) {
-						inputNombre.required = false;
-						inputNombre.removeAttribute('required');
-					}
-					if (inputUbi) {
-						inputUbi.required = false;
-						inputUbi.removeAttribute('required');
-					}
-				}
-			}
-			radios.forEach(function(radio) {
-				radio.addEventListener('change', updateRequired);
-				radio.addEventListener('click', function() {
-					setTimeout(updateRequired, 10);
-				});
-			});
-
-			updateRequired();
-		})(i);
-	}
-}
-
 var initialLang = localStorage.getItem("lang") || "es";
 updateLanguageCode(initialLang);
-attachRestauranteValidation();
 
 if (document.readyState === "loading") {
 	document.addEventListener("DOMContentLoaded", initFormulario);
