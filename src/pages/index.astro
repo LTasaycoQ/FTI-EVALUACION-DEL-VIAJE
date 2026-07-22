@@ -36,7 +36,10 @@ import Languaje from "../components/languaje.astro";
 
 			<div class="containerForm">
 				<form class="form-contacto">
-					<div class="container-datos ">
+						<div class="container-datosUnico" style="display:none;">
+							<input type="hidden" name="codigo_idioma" id="codigo_idioma" value="es" />
+						</div>					
+						<div class="container-datos ">
 						<div class="container-datosUnico">
 							<i class="bi bi-person-fill"></i>
 							<input class="datosForm-personal" type="text" name="nombre" placeholder="Nombre completo" required />
@@ -49,7 +52,6 @@ import Languaje from "../components/languaje.astro";
 					</div>
 
 					
-					<!-- HOTEL TRANSFER -->
 					<div class="seccion">
 						<button type="button" class="seccion-header" aria-expanded="true">
 							<div class="seccion-titulo">
@@ -421,7 +423,6 @@ import Languaje from "../components/languaje.astro";
 						</div>
 					</div>
 
-					<!-- RATING -->
 					<div class="max-w-xl mx-auto p-6 bg-white rounded-2xl shadow-sm border border-gray-100 mt-8">
 						<p class="text-gray-800 font-bold mb-4 text-center">
 							¿Qué tan probable es que recomiendes nuestro servicio?
@@ -483,6 +484,14 @@ function showModal(message) {
   };
 }
 
+
+function updateLanguageCode(lang) {
+  var codigoIdiomaInput = document.getElementById("codigo_idioma");
+  if (codigoIdiomaInput) {
+    codigoIdiomaInput.value = lang;
+  }
+}
+
 function initFormulario() {
   makeRadiosDeselectable();
 
@@ -519,12 +528,22 @@ function initFormulario() {
   }
   attachRating();
 
-  var URL_API = "https://organic-florencia-fiesta-tours-f2514923.koyeb.app/evaluacion";
+  	var URL_API = "http://localhost:8080/service/evaluacion.php";
+	function getCalificacionMap(lang) {
+		const maps = {
+			es: { "4": "Excelente", "3": "Bueno", "2": "Regular", "1": "Malo" },
+			en: { "4": "Excellent", "3": "Good", "2": "Fair", "1": "Poor" },
+			pr: { "4": "Excelente", "3": "Bom", "2": "Regular", "1": "Ruim" }
+		};
+		return maps[lang] || maps.es;
+	}
 
-  var mapCalificacion = function(valor) {
-    var notas = { "4": "Excelente", "3": "Bueno", "2": "Regular", "1": "Malo" };
-    return notas[valor] || null;
-  };
+	function mapCalificacion(valor) {
+		if (!valor) return null;
+		const lang = document.getElementById("codigo_idioma")?.value || "es";
+		const map = getCalificacionMap(lang);
+		return map[valor] || null;
+	}
 
   form.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -550,7 +569,8 @@ function initFormulario() {
     }
 
     var data = {
-      nombre:                  formData.get("nombre"),
+	  codigo_idioma:           formData.get("codigo_idioma"),
+	  nombre:                  formData.get("nombre"),
       email:                   formData.get("email"),
       fecha:                   formData.get("fecha"),
       comentarioHotelTransfer: formData.get("comentarioHotelTransfer"),
@@ -629,6 +649,8 @@ function initFormulario() {
     pr: { titulo:"FORMULÁRIO DE AVALIAÇÃO",tituloContainer: "Tralados",comentario:"Comentário",comentariosGenerales:"Comentários Gerais e/ou Sugestões",rcorreo:"Poderia nos fornecer seu endereço de e-mail para que possamos entrar em contato com você a respeito de sua viagem ao Peru? Esta informação é confidencial.",recomendar:"Qual a probabilidade de você recomendar nosso serviço?",agradecimiento:"Muito obrigado por preencher nosso formulário de avaliação",enviar:"Enviar avaliação →",placeholders:{nombre:"Nome completo",email:"Endereço de e-mail",ciudad:"Digite outra cidade",hotel:"Nome do Hotel",ubicacion:"Localização",restaurante:"Nome do Restaurante",experiencia:"Conte-nos sobre sua experiência..."},header:{calificacion:"Avaliação",malo:"Ruim",regular:"Regular",bueno:"Bom",excelente:"Excelente"},secciones:{titulos:{transfer:"Traslados",tours:"Tours e guias turísticos",hoteles:"Hotéis",restaurantes:"Restaurantes"},transfer:{"servicio-tren":"Serviço de Trem para Machu Picchu"},tours:{lima:"Tour pela cidade de Lima","lima-museo":"Tour pela cidade de Lima & museu",cusco:"Tour pela cidade de Cusco",pisac:"Pisac & Ollantaytambo",maras:"Salinas de Maras",machu:"Excursão a Machu Picchu"},intro:{texto:"Caro visitante:Convidamos a você para dar sua opinião sobre os nossos serviços. Por favor, ajude-nos a identificar aos nossos colaboradores que estão desenvolvendo um trabalho de excelência para premiá-los e para detectar as áreas que precisamos melhorar. Buscamos aperfeiçoar a arte de 'servir ao turista'."}}},
   };
 
+
+
   function applyLang(lang) {
     var t = translations[lang] || translations.es;
     var p = t.placeholders;
@@ -683,9 +705,10 @@ function initFormulario() {
     set("textarea[name='comentarios']",          p.experiencia);
   }
 
-  window.addEventListener("changeLang", function(e) { applyLang(e.detail); });
+  window.addEventListener("changeLang", function(e) { applyLang(e.detail);   updateLanguageCode(e.detail);});
 
   var savedLang = localStorage.getItem("lang") || "es";
+  updateLanguageCode(initialLang);
   setTimeout(function() { applyLang(savedLang); }, 100);
 }
 
@@ -720,6 +743,10 @@ function makeRadiosDeselectable() {
   });
 }
 
+
+
+var initialLang = localStorage.getItem("lang") || "es";
+updateLanguageCode(initialLang);
 function attachRestauranteValidation() {
   for (var i = 1; i <= 4; i++) {
     (function(idx) {
